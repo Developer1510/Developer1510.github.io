@@ -1,0 +1,123 @@
+<!doctype xhtml>
+<html lang="{{ site.lang | default: "en-US" }}">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+		<link rel="stylesheet" href="default.css" type="text/css" />
+	</head>
+	<body>
+		<div id="container-vertical">
+			<div id="container-horizontal">
+				<div id="sidebar">
+					<div id="sidebar-logo">
+						<img src="logo.png" />
+					</div>
+					<div id="sidebar-content">
+						<h2>EO Browser pins repository</h2>
+						<p>This is a repository of pins and pin descriptions for EO Browser, also called the Pin library, which aims to provide a growing repository of remote sensing images.
+						Explore interesting locations, contribute by adding your own pins and pin descriptions, and share your collections with others.</p>
+					</div>
+				</div>
+				
+				<div id="main-content">
+					<h2>Pins</h2>
+					<div id="pins">
+						<h3 class="pin-title">Wildfires</h3>
+						<div class="pin">
+							<div class="pin-img">
+								<img src="temp/theme1.jpg" />
+								<div class="pin-caption">
+									<div class="pin-date">2020-07-23</div>
+									<div class="pin-type">Sentinel-2</div>
+								</div>
+							</div>
+							<div class="pin-extra">
+								<div class="pin-map">
+									<img class="pin-world" src="world.png" />
+									<img class="pin-marker" src="world_marker.png" style="left: 150px; top: 60px;"/>
+									<div class="pin-buttons">
+										<a href="https://www.google.com">Open in EO Browser</a>
+										<a class="right" href="https://www.google.com">High-res download</a>
+									</div>
+								</div>
+								<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper massa sed ante molestie ultrices. Fusce ligula neque, volutpat et faucibus eu, feugiat id purus. Nunc tincidunt egestas lacus eget accumsan. Vestibulum mattis mollis lorem, at gravida arcu pretium a. Proin id odio vitae risus hendrerit sodales ut venenatis nunc. In a tempus leo. Sed rhoncus suscipit turpis, eu tincidunt libero tincidunt at. Curabitur vitae nisl et enim rutrum tristique. Praesent auctor neque tortor, ac fermentum risus elementum pellentesque.</p>
+								<p>sed iaculis odio. Nulla turpis quam, tempus vitae lorem a, venenatis pharetra nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam aliquam tempus risus eu hendrerit. Maecenas auctor neque sit amet maximus aliquam. Aenean ac iaculis nunc. In nec erat consectetur, placerat sem vitae, ultrices tellus. Integer non mauris consectetur, lobortis neque eget, sagittis massa. Aliquam ut enim id purus sodales maximus. Pellentesque maximus eu risus id sagittis. Nam auctor pharetra enim blandit tristique. Donec maximus sed lectus in tristique. Etiam ultricies libero ut vestibulum tempor. </p>
+							</div>
+						</div>
+					</div>
+					
+					<h2>Themes</h2>
+					<div id="themes">
+						<div class="theme-img">
+							<a href="https://www.google.com">
+								<img src="temp/theme1.jpg" />
+								<div class="theme-name">
+									Title 1
+								</div>
+							</a>
+						</div>
+						<div class="theme-img">
+							<a href="https://www.google.com">
+								<img src="temp/theme2.jpg" />
+								<div class="theme-name">
+									Title 2
+								</div>
+							</a>
+						</div>
+						<div class="theme-img">
+							<a href="https://www.google.com">
+								<img src="temp/theme3.jpg" />
+								<div class="theme-name">
+									Title 3
+								</div>
+							</a>
+						</div>
+						<div class="theme-img">
+							<a href="https://www.google.com">
+								<img src="temp/theme1.jpg" />
+								<div class="theme-name">
+									Title 4
+								</div>
+							</a>
+						</div>
+						<div class="theme-img">
+							<a href="https://www.google.com">
+								<img src="temp/theme2.jpg" />
+								<div class="theme-name">
+									Title 5
+								</div>
+							</a>
+						</div>
+						<div class="theme-img">
+							<a href="https://www.google.com">
+								<img src="temp/theme3.jpg" />
+								<div class="theme-name">
+									Title 6
+								</div>
+							</a>
+						</div>
+						<div class="theme-img">
+							<a href="https://www.google.com">
+								<img src="temp/theme1.jpg" />
+								<div class="theme-name">
+									Title 7
+								</div>
+							</a>
+						</div>
+					</div>
+					
+					{{ content }}
+				</div>
+			</div>
+			
+			<div id="footer">
+				<div class="content">
+					<a href="https://www.github.com">View on GitHub</a>
+				</div>
+				<div class="content right">
+					<a href="https://www.sentinel-hub.com"><img src="sentinelhub.png" /></a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
