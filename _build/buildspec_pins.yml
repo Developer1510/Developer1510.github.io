@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - pip3 install Pillow
+  build:
+    commands:
+      - python _build/build_pins.py
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - index.html
+    - _themeimgs/*

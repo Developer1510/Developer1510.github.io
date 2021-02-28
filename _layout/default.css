@@ -90,6 +90,7 @@ h3 {
 
 .theme-img .theme-name {
 	position: absolute;
+	display: block;
 	text-align: center;
 	width: 100%;
 	bottom: 10px;
@@ -154,7 +155,7 @@ h3 {
 	position: relative;
 	margin-right: 10px;
 	margin-bottom: 10px;
-	float: left;
+	/* float: left; */
 }
 
 .pin-map .pin-world {
