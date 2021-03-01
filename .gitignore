@@ -1,2 +1,4 @@
 /_design/
 /.project
+/.pydevproject
+/codebuild_build.sh
