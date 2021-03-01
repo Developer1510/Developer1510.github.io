@@ -1,8 +1,8 @@
 [
     {
         "title": "Agriculture in Saudi Arabia (Moisture Index)",
-        "lat_": 26.21913,
-        "lng_": 43.49539,
+        "lat": 26.21913,
+        "lng": 43.49539,
         "zoom": 13,
         "datasetId": "S2L2A",
         "layerId": "99_MOISTURE-INDEX",
@@ -13,7 +13,8 @@
         "themeId": "AGRICULTURE",
         "description": "The desert country of Saudi Arabia highly relies on irrigation farming for growing crops due to its arid and warm climate. The circular shape of the fields is a result of the irrigation system (center-pivot irrigation) which uses water from a huge fossil aquifer. The size of the field ranges from a few hundred meters up to almost one kilometer, limited by the size of the irrigation system. What started more than 40 years ago as a huge success story, ensuring domestic food security for the kingdom, is becoming more and more problematic as the once rich water reserves are depleting. As a result, Saudi Arabia is buying more and more fields abroad to satisfy domestic demand. [More...](https://www.nationalgeographic.de/photography/2018/04/wasser-nahrung-energie-die-wuesten-werden-gruen?image=61750)",
         "pinLibrary": {
-        	"thumbnailPath": "fig/Saudi_Arabia_Agriculture_thumbnail.jpg"
+        	"thumbnailPath": "fig/Saudi_Arabia_Agriculture_thumbnail.jpg",
+        	"highResolutionImageUrl": "https://www.flickr.com/photos/sentinelhub/49657834951/"
         }
     },
     {
@@ -30,12 +31,13 @@
         "themeId": "AGRICULTURE",
         "description": "[Veneto agriculture](https://www.recare-hub.eu/news/45-06-bioforsk) is one of the most productive in Italy, producing mainly cereals, fruits, and wine. Small, hand farmed fields present a contrast to the growing industrialization of the sector, which suffers from soil degradation. The Barren Soil visualization shows that in the middle of spring still a lot of fields lie fallow indicated by the red color.",
         "pinLibrary": {
-        	"thumbnailPath": "fig/Italy_Agriculture_thumbnail.jpg"
+        	"thumbnailPath": "fig/Italy_Agriculture_thumbnail.jpg",
+        	"highResolutionImageUrl": "https://www.flickr.com/photos/sentinelhub/50303823113/"
         }
     },
     {
         "title": "Agriculture in California, USA (NDVI)",
-        "_lat": 36.70772,
+        "lat": 36.70772,
         "lng": -120.60242,
         "zoom": 13,
         "datasetId": "S2L2A",
@@ -47,7 +49,8 @@
         "themeId": "AGRICULTURE",
         "description": "The [Central Valley](https://ca.water.usgs.gov/projects/central-valley/about-central-valley.html), west of California’s famous Sierra Nevada is home to the states biggest and most important agricultural region. The fields are irrigated on the one hand with water from the two major rivers of the valley (Sacramento and San Joaquin Rivers) on the other hand with groundwater. Despite using less than 1% of the nation’s total farmland, the valley produces 25% of U.S. food. In total more than 250 different crops are grown, the most important being cereal grains, hay, cotton, different fruits and vegetable, and nuts.",
         "pinLibrary": {
-        	"thumbnailPath": "fig/California_Agriculture_thumbnail.jpg"
+        	"thumbnailPath": "fig/California_Agriculture_thumbnail.jpg",
+        	"highResolutionImageUrl": "https://www.flickr.com/photos/sentinelhub/50303832418/"
         }
     },
     {
@@ -64,7 +67,8 @@
         "themeId": "AGRICULTURE",
         "description": "The area around Meraro in the Arsi zone which is part of the Ethiopian Highlands plays an important role in food security in Ethiopia. The agriculture in the region (and the country) was for a long time an [intensive subsistence farming](https://reliefweb.int/report/ethiopia/cluster-farming-improving-farmers-productivity-food-security-arsi-zone) with 12 million smallholder farming households producing 95% of the country’s agricultural products. To become less dependent on foreign food imports and foster the countries development the agriculture sector was subject to big changes in the past years. [More](http://www.fao.org/ethiopia/fao-in-ethiopia/ethiopia-at-a-glance/en/)",
         "pinLibrary": {
-        	"thumbnailPath": "fig/Ethiopia_Agriculture_thumbnail.jpg"
+        	"thumbnailPath": "fig/Ethiopia_Agriculture_thumbnail.jpg",
+        	"highResolutionImageUrl": "https://www.flickr.com/photos/sentinelhub/50304463236/"
         }
     },
     {

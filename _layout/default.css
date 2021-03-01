@@ -118,10 +118,40 @@ h3 {
 	margin-bottom: 10px;
 }
 
-.pin-img img {
+.pin-img-inner {
+	position: relative;
+}
+
+.pin-img .pin-img-arrow {
+	position: absolute;
+	top: 50%;
+	margin-top: -32px;
+}
+
+.pin-img .pin-img-arrow.left {
+	left: -10px;
+}
+
+.pin-img .pin-img-arrow.right {
+	right: -10px;
+}
+
+.pin-img .img {
 	width: 468px;
 	height: auto;
 	max-width: 100%;
+}
+
+.pin-img .pin-pager {
+	position: absolute;
+	width: 100%;
+	margin: 0 auto;
+	bottom: 20px;
+	text-align: center;
+}
+
+.pin-img .pin-pager img {
+	margin: 2px;
 }
 
 .pin-img .pin-caption {

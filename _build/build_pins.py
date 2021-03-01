@@ -10,29 +10,31 @@ eob_base_url = 'https://apps.sentinel-hub.com/eo-browser/?'
 max_pin_image_width = 640
 max_pin_image_height = 480
 
-
+        
 with open('_build/container.html', 'r', encoding='utf-8') as html_container_file, \
     open('_build/pin.html', 'r', encoding='utf-8') as html_pin_file:
     
     html_container_template = html_container_file.read()
     pin_html_template = html_pin_file.read()
-    pin_serial = 0
-    javascript = ''
-    
+
     for pins_dir in os.listdir('.'):
         if os.path.isdir(pins_dir) and not pins_dir.startswith('_') and not pins_dir.startswith('.'):
-            html_content = '\t\t\t\t\t<h2>Pins</h2>\n' + \
-                            '\t\t\t\t\t<div id="pins">\n'
-    
+            pin_auto_group_serial = 0
+            pins_per_group = {}
+            
             for pins_json_file_name in glob.glob(os.path.join(pins_dir, '*.json')):
                 with open(pins_json_file_name, 'r', encoding='utf-8') as pins_json_file:
                     pins = json.load(pins_json_file)
                     for pin in pins:
                         is_location = 'lat' in pin and 'lng' in pin
                         is_eob = is_location and 'zoom' in pin
-                        pin_lib_extra = pin.get('pinLibrary')
-                        thumbnail_path = pin_lib_extra.get('thumbnailPath') if pin_lib_extra else None 
                         
+                        pin_lib_extra = pin.get('pinLibrary')
+                        group_id = pin_lib_extra.get('groupId') if pin_lib_extra else None 
+                        thumbnail_path = pin_lib_extra.get('thumbnailPath') if pin_lib_extra else None 
+                        download_url = pin_lib_extra.get('highResolutionImageUrl') if pin_lib_extra else None 
+                        
+                        # generate EOB URL
                         eob_url = eob_base_url
                         for pin_key in pin.keys():
                             if pin_key not in ('title', 'description', 'pinLibrary'):
@@ -40,30 +42,80 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
                                     eob_url += '&' + pin_key + '=' + base64.b64encode(bytes(str(pin.get(pin_key)), 'utf-8')).decode("utf-8")
                                 else:
                                     eob_url += '&' + pin_key + '=' + str(pin.get(pin_key))
-                          
-                        # print(eob_url)
+                                    
                         
-                        download_url = pin.get('visualizationUrl') or ''
+                        # if group not specified, autogenerate the groupID
+                        if not group_id:
+                            group_id = '_$' + str(pin_auto_group_serial)
+                            pin_auto_group_serial += 1
+                        
+                        # get the group for this pin
+                        pins_in_group = pins_per_group.get(group_id)
+                        if not pins_in_group:
+                            pins_in_group = []
+                            pins_per_group[group_id] = pins_in_group
+                        
+                        # add current pin data to the group
+                        pin_data = { \
+                            'group_id': group_id, \
+                            'is_location': is_location, \
+                            'is_eob': is_eob, \
+                            'title': pin.get('title') or '', \
+                            'date': pin.get('toTime') or '', \
+                            'type': pin.get('datasetId') or '', \
+                            'thumbnail_path': thumbnail_path if thumbnail_path else '', \
+                            'world_pos_x': str(int((pin['lng'] + 180) * 300 / 360)) if is_location else '0', \
+                            'world_pos_y': str(int((-pin['lat'] + 90) * 150 / 180)) if is_location else '0', \
+                            'eob_url': eob_url, \
+                            'download_url': download_url if download_url else '', \
+                            'description': markdown.markdown(pin['description']) \
+                        }
+                        pins_in_group.append(pin_data)                            
+            
+            html_content = '\t\t\t\t\t<h2>Pins</h2>\n'
+            javascript = 'var groups = [];\n'
+    
+            # put the first pin of each group into the HTML and append all pins to javascript
+            for group_id in pins_per_group:
+                pins_in_group = pins_per_group[group_id]
                 
-                        html_content += pin_html_template \
-                            .replace('{id}', 'pin' + str(pin_serial)) \
-                            .replace('{title}', pin.get('title') or '') \
-                            .replace('{date}', pin.get('toTime') or '') \
-                            .replace('{type}', pin.get('datasetId') or '') \
-                            .replace('{image_path}', thumbnail_path if thumbnail_path else '') \
-                            .replace('{world_pos_x}', str(int((pin['lng'] + 180) * 300 / 360)) if is_location else '0') \
-                            .replace('{world_pos_y}', str(int((-pin['lat'] + 90) * 150 / 180)) if is_location else '0') \
-                            .replace('{world_pos_display}', 'block' if is_location else 'none') \
-                            .replace('{eob_url}', eob_url) \
-                            .replace('{eob_display}', 'block' if is_eob else 'none') \
-                            .replace('{download_url}', download_url) \
-                            .replace('{download_display}', 'block' if download_url else 'none') \
-                            .replace('{description}', markdown.markdown(pin['description']))
-                            
-                        pin_serial += 1
+                html_pager = ''
+                if len(pins_in_group) > 1:
+                    for i in range(0, len(pins_in_group)):
+                        pager_image = 'pager_current' if i == 0 else 'pager_other'
+                        html_pager += '<img src="{layout_dir}/' + pager_image + '.png" id="' + group_id + '_pin' + str(i) + '" />'
+                
+                javascript += "groups['" + group_id +"'] = {\n\t'pins':[\n"
+                for pin in pins_in_group:
+                    javascript += '\t\t{'
+                    for pin_field in pin:
+                        if not pin_field == 'group_id':
+                            javascript += "'" + pin_field + "': '" + str(pin[pin_field]).replace("'", "\\'") + "', "
+                    javascript += '},\n'
+                javascript += '\t]\n};\n'
+                
+                pin = pins_in_group[0]
+                
+                html_content += pin_html_template \
+                    .replace('{pager}', html_pager) \
+                    .replace('{group_id}', pin['group_id']) \
+                    .replace('{title}', pin['title']) \
+                    .replace('{date}', pin['date']) \
+                    .replace('{type}', pin['type']) \
+                    .replace('{thumbnail_path}', pin['thumbnail_path'] if pin['thumbnail_path'] else '') \
+                    .replace('{world_pos_x}', pin['world_pos_x']) \
+                    .replace('{world_pos_y}', pin['world_pos_y']) \
+                    .replace('{world_pos_display}', 'block' if pin['is_location'] else 'none') \
+                    .replace('{eob_url}', pin['eob_url']) \
+                    .replace('{eob_display}', 'block' if pin['is_eob'] else 'none') \
+                    .replace('{download_url}', pin['download_url']) \
+                    .replace('{download_display}', 'block' if pin['download_url'] else 'none') \
+                    .replace('{description}', pin['description']) \
+                    .replace('{arrow_right_display}', 'block' if len(pins_in_group) > 1 else 'none')
                 
             html_content += '\t\t\t\t\t</div>\n'
-        
+            
+            
             html = html_container_template.replace('{content}', html_content)
             html = html.replace('{script}', javascript)
             html = html.replace('{layout_dir}', '../_layout')
