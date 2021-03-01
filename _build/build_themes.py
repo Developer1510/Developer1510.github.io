@@ -44,8 +44,9 @@ with open('themes.json', 'r', encoding='utf-8') as themes_json_file, \
     
     html_content += '\t\t\t\t\t</div>\n'
 
-    html = html.replace('{layout_dir}', '_layout')
     html = html.replace('{content}', html_content)
+    html = html.replace('{script}', '')
+    html = html.replace('{layout_dir}', '_layout')
     
     output_html_file = open('index.html', 'w', encoding='utf-8')
     output_html_file.write(html)

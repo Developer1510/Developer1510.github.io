@@ -16,6 +16,8 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
     
     html_container_template = html_container_file.read()
     pin_html_template = html_pin_file.read()
+    pin_serial = 0
+    javascript = ''
     
     for pins_dir in os.listdir('.'):
         if os.path.isdir(pins_dir) and not pins_dir.startswith('_') and not pins_dir.startswith('.'):
@@ -44,6 +46,7 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
                         download_url = pin.get('visualizationUrl') or ''
                 
                         html_content += pin_html_template \
+                            .replace('{id}', 'pin' + str(pin_serial)) \
                             .replace('{title}', pin.get('title') or '') \
                             .replace('{date}', pin.get('toTime') or '') \
                             .replace('{type}', pin.get('datasetId') or '') \
@@ -56,10 +59,13 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
                             .replace('{download_url}', download_url) \
                             .replace('{download_display}', 'block' if download_url else 'none') \
                             .replace('{description}', markdown.markdown(pin['description']))
+                            
+                        pin_serial += 1
                 
             html_content += '\t\t\t\t\t</div>\n'
         
             html = html_container_template.replace('{content}', html_content)
+            html = html.replace('{script}', javascript)
             html = html.replace('{layout_dir}', '../_layout')
 
             output_html_file = open(os.path.join(pins_dir, 'index.html'), 'w', encoding='utf-8')
