@@ -18,5 +18,5 @@ phases:
       - git add */index.html
       - git add index.html
       - git commit -m [CodeBuild]
-      - git push
+      - git push origin HEAD:main
       - echo Build completed
