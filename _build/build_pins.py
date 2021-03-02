@@ -1,7 +1,7 @@
 import os
+import traceback
 import json
 import glob
-import re
 import base64
 import markdown
 from PIL import Image
@@ -23,54 +23,58 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
             pins_per_group = {}
             
             for pins_json_file_name in glob.glob(os.path.join(pins_dir, '*.json')):
-                with open(pins_json_file_name, 'r', encoding='utf-8') as pins_json_file:
-                    pins = json.load(pins_json_file)
-                    for pin in pins:
-                        is_location = 'lat' in pin and 'lng' in pin
-                        is_eob = is_location and 'zoom' in pin
-                        
-                        pin_lib_extra = pin.get('pinLibrary')
-                        group_id = pin_lib_extra.get('groupId') if pin_lib_extra else None 
-                        thumbnail_path = pin_lib_extra.get('thumbnailPath') if pin_lib_extra else None 
-                        download_url = pin_lib_extra.get('highResolutionImageUrl') if pin_lib_extra else None 
-                        
-                        # generate EOB URL
-                        eob_url = eob_base_url
-                        for pin_key in pin.keys():
-                            if pin_key not in ('title', 'description', 'pinLibrary'):
-                                if pin_key == 'evalscript':
-                                    eob_url += '&' + pin_key + '=' + base64.b64encode(bytes(str(pin.get(pin_key)), 'utf-8')).decode("utf-8")
-                                else:
-                                    eob_url += '&' + pin_key + '=' + str(pin.get(pin_key))
-                                    
-                        
-                        # if group not specified, autogenerate the groupID
-                        if not group_id:
-                            group_id = '_$' + str(pin_auto_group_serial)
-                            pin_auto_group_serial += 1
-                        
-                        # get the group for this pin
-                        pins_in_group = pins_per_group.get(group_id)
-                        if not pins_in_group:
-                            pins_in_group = []
-                            pins_per_group[group_id] = pins_in_group
-                        
-                        # add current pin data to the group
-                        pin_data = { \
-                            'group_id': group_id, \
-                            'is_location': is_location, \
-                            'is_eob': is_eob, \
-                            'title': pin.get('title') or '', \
-                            'date': pin.get('toTime') or '', \
-                            'type': pin.get('datasetId') or '', \
-                            'thumbnail_path': thumbnail_path if thumbnail_path else '', \
-                            'world_pos_x': str(int((pin['lng'] + 180) * 300 / 360)) if is_location else '0', \
-                            'world_pos_y': str(int((-pin['lat'] + 90) * 150 / 180)) if is_location else '0', \
-                            'eob_url': eob_url, \
-                            'download_url': download_url if download_url else '', \
-                            'description': markdown.markdown(pin['description']) \
-                        }
-                        pins_in_group.append(pin_data)                            
+                try:
+                    with open(pins_json_file_name, 'r', encoding='utf-8') as pins_json_file:
+                        print('Processing JSON file "' + pins_json_file_name + '"')
+                        pins = json.load(pins_json_file)
+                        for pin in pins:
+                            is_location = 'lat' in pin and 'lng' in pin
+                            is_eob = is_location and 'zoom' in pin
+                            
+                            pin_lib_extra = pin.get('pinLibrary')
+                            group_id = pin_lib_extra.get('groupId') if pin_lib_extra else None 
+                            thumbnail_path = pin_lib_extra.get('thumbnailPath') if pin_lib_extra else None 
+                            download_url = pin_lib_extra.get('highResolutionImageUrl') if pin_lib_extra else None 
+                            
+                            # generate EOB URL
+                            eob_url = eob_base_url
+                            for pin_key in pin.keys():
+                                if pin_key not in ('title', 'description', 'pinLibrary'):
+                                    if pin_key == 'evalscript':
+                                        eob_url += '&' + pin_key + '=' + base64.b64encode(bytes(str(pin.get(pin_key)), 'utf-8')).decode("utf-8")
+                                    else:
+                                        eob_url += '&' + pin_key + '=' + str(pin.get(pin_key))
+                                        
+                            
+                            # if group not specified, autogenerate the groupID
+                            if not group_id:
+                                group_id = '_$' + str(pin_auto_group_serial)
+                                pin_auto_group_serial += 1
+                            
+                            # get the group for this pin
+                            pins_in_group = pins_per_group.get(group_id)
+                            if not pins_in_group:
+                                pins_in_group = []
+                                pins_per_group[group_id] = pins_in_group
+                            
+                            # add current pin data to the group
+                            pin_data = { \
+                                'group_id': group_id, \
+                                'is_location': is_location, \
+                                'is_eob': is_eob, \
+                                'title': pin.get('title') or '', \
+                                'date': pin.get('toTime') or '', \
+                                'type': pin.get('datasetId') or '', \
+                                'thumbnail_path': thumbnail_path if thumbnail_path else '', \
+                                'world_pos_x': str(int((pin['lng'] + 180) * 300 / 360)) if is_location else '0', \
+                                'world_pos_y': str(int((-pin['lat'] + 90) * 150 / 180)) if is_location else '0', \
+                                'eob_url': eob_url, \
+                                'download_url': download_url if download_url else '', \
+                                'description': markdown.markdown(pin['description']) \
+                            }
+                            pins_in_group.append(pin_data)    
+                except Exception as e:
+                    traceback.print_exception(type(e), e, e.__traceback__)               
             
             html_content = '\t\t\t\t\t<h2>Pins</h2>\n'
             javascript = 'var groups = [];\n'
