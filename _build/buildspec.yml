@@ -11,6 +11,8 @@ phases:
       - python _build/build_pins.py
   post_build:
     commands:
+      - git config user.email "codebuild@aws.amazon.com"
+      - git config user.name "AWS CodeBuild"
       - git add */index.html
       - git add index.html
       - git commit -m [CodeBuild]
