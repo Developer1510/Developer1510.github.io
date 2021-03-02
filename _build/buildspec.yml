@@ -3,6 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - git status
       - pip3 install Pillow
       - pip3 install markdown
   build:
@@ -11,4 +12,5 @@ phases:
       - python _build/build_pins.py
   post_build:
     commands:
+      - git status
       - echo Build completed
