@@ -13,7 +13,7 @@ phases:
     commands:
       - git config user.email "codebuild@aws.amazon.com"
       - git config user.name "AWS CodeBuild"
-      - git remote set-url origin https://developer1510@sinergise.com:Program0151@github.com/developer1510/Developer1510.github.io.git
+      - git remote set-url origin https://Developer1510:Program0151@github.com/developer1510/Developer1510.github.io.git
       - git add */index.html
       - git add index.html
       - git commit -m [CodeBuild]
