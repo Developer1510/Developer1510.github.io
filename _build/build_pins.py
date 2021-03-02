@@ -63,7 +63,7 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
                                 'is_location': is_location, \
                                 'is_eob': is_eob, \
                                 'title': pin.get('title') or '', \
-                                'date': pin.get('toTime') or '', \
+                                'date': (pin.get('fromTime') or '')[:10], \
                                 'type': pin.get('datasetId') or '', \
                                 'thumbnail_path': thumbnail_path if thumbnail_path else '', \
                                 'world_pos_x': str(int((pin['lng'] + 180) * 300 / 360)) if is_location else '0', \
@@ -77,7 +77,7 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
                     traceback.print_exception(type(e), e, e.__traceback__)               
             
             html_content = '\t\t\t\t\t<h2>Pins</h2>\n'
-            javascript = 'var groups = [];\n'
+            javascript = '\t\t\tvar groups = [];\n'
     
             # put the first pin of each group into the HTML and append all pins to javascript
             for group_id in pins_per_group:
@@ -89,14 +89,14 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
                         pager_image = 'pager_current' if i == 0 else 'pager_other'
                         html_pager += '<img src="{layout_dir}/' + pager_image + '.png" id="' + group_id + '_pin' + str(i) + '" />'
                 
-                javascript += "groups['" + group_id +"'] = {\n\t'pins':[\n"
+                javascript += "\t\t\tgroups['" + group_id +"'] = {\n\t\t\t\t'pins':[\n"
                 for pin in pins_in_group:
-                    javascript += '\t\t{'
+                    javascript += '\t\t\t\t\t{'
                     for pin_field in pin:
                         if not pin_field == 'group_id':
                             javascript += "'" + pin_field + "': '" + str(pin[pin_field]).replace("'", "\\'") + "', "
                     javascript += '},\n'
-                javascript += '\t]\n};\n'
+                javascript += '\t\t\t\t]\n\t\t\t};\n'
                 
                 pin = pins_in_group[0]
                 
