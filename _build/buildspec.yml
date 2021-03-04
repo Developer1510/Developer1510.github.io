@@ -9,8 +9,6 @@ phases:
     commands:
       - python _build/build_themes.py https://www.github.com/$GIT_HUB_REPO
       - python _build/build_pins.py https://www.github.com/$GIT_HUB_REPO
-  post_build:
-    commands:
       - git config user.email "codebuild@aws.amazon.com"
       - git config user.name "AWS CodeBuild"
       - git remote set-url origin https://$GIT_HUB_AUTH_USER:$GIT_HUB_AUTH_TOKEN@github.com/$GIT_HUB_REPO
