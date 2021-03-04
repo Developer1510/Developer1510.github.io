@@ -120,8 +120,12 @@
 		<div id="container-vertical">
 			<div id="container-horizontal">
 				<div id="sidebar">
-					<div id="sidebar-logo">
-						<a href="/"><img src="../_layout/logo.png" /></a>
+					<div id="sidebar-header">
+						<a href="/"><img src="../_layout/logo.svg" width="162" /></a>
+						<a class="right" href="javascript:toggleSearch();"><img src="../_layout/search.svg" width="24" /></a>
+					</div>
+					<div id="sidebar-search" class="hidden">
+						<input id="search-box" type="text" placeholder="Search..." onkeydown="searchKeyDown(this)" />
 					</div>
 					<div id="sidebar-content">
 						<h2>EO Browser pins repository</h2>
@@ -153,7 +157,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$0-world-marker" style="left: 151px; top: 68px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=8.086&lng=2.208&zoom=7&datasetId=S5_CO&layerId=CO_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2020-01-27T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2020-01-27T00:00:00.000Z" target="_blank" id="_$0-eob" style="display: block;">Open in EO Browser</a>
@@ -185,7 +189,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$1-world-marker" style="left: 235px; top: 62px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=15.012&lng=102.063&zoom=7&datasetId=S5_CO&layerId=CO_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2020-01-24T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2020-01-24T00:00:00.000Z" target="_blank" id="_$1-eob" style="display: block;">Open in EO Browser</a>
@@ -217,7 +221,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$2-world-marker" style="left: 273px; top: 105px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=-37.068&lng=148.195&zoom=7&datasetId=S5_CO&layerId=CO_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2020-01-27T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2020-01-27T00:00:00.000Z" target="_blank" id="_$2-eob" style="display: block;">Open in EO Browser</a>
@@ -249,7 +253,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$3-world-marker" style="left: 162px; top: 81px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=-7.934&lng=15.282&zoom=7&datasetId=S5_CO&layerId=CO_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2019-07-10T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2019-07-10T00:00:00.000Z" target="_blank" id="_$3-eob" style="display: block;">Open in EO Browser</a>
@@ -281,7 +285,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$4-world-marker" style="left: 155px; top: 37px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=45.51&lng=6.207&zoom=7&datasetId=S5_CO&layerId=CO_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2020-01-24T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2020-01-24T00:00:00.000Z" target="_blank" id="_$4-eob" style="display: block;">Open in EO Browser</a>
@@ -313,7 +317,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$5-world-marker" style="left: 214px; top: 56px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=22.28&lng=76.97&zoom=7&datasetId=S5_NO2&layerId=NO2_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2020-01-24T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2020-01-24T00:00:00.000Z" target="_blank" id="_$5-eob" style="display: block;">Open in EO Browser</a>
@@ -345,7 +349,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$6-world-marker" style="left: 164px; top: 31px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=51.696&lng=16.864&zoom=7&datasetId=S5_NO2&layerId=NO2_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2020-01-24T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2020-01-24T00:00:00.000Z" target="_blank" id="_$6-eob" style="display: block;">Open in EO Browser</a>
@@ -377,7 +381,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$7-world-marker" style="left: 175px; top: 97px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=-27.24&lng=30.65&zoom=6&datasetId=S5_NO2&layerId=NO2_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2019-07-17T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2019-07-17T00:00:00.000Z" target="_blank" id="_$7-eob" style="display: block;">Open in EO Browser</a>
@@ -409,7 +413,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$8-world-marker" style="left: 190px; top: 52px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=27.338&lng=48.801&zoom=7&datasetId=S5_NO2&layerId=NO2_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2019-07-17T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2019-07-17T00:00:00.000Z" target="_blank" id="_$8-eob" style="display: block;">Open in EO Browser</a>
@@ -441,7 +445,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$9-world-marker" style="left: 199px; top: 41px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=40.175&lng=59.93&zoom=7&datasetId=S5_CH4&layerId=CH4_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2020-01-01T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2020-01-01T00:00:00.000Z" target="_blank" id="_$9-eob" style="display: block;">Open in EO Browser</a>
@@ -473,7 +477,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$10-world-marker" style="left: 149px; top: 65px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=11.883&lng=-1.044&zoom=7&datasetId=S5_CH4&layerId=CH4_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2019-03-14T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2019-03-14T00:00:00.000Z" target="_blank" id="_$10-eob" style="display: block;">Open in EO Browser</a>
@@ -505,7 +509,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$11-world-marker" style="left: 152px; top: 39px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=42.306&lng=2.538&zoom=7&datasetId=S5_SO2&layerId=SO2_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2019-01-10T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2019-01-10T00:00:00.000Z" target="_blank" id="_$11-eob" style="display: block;">Open in EO Browser</a>
@@ -537,7 +541,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$12-world-marker" style="left: 162px; top: 43px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=38.383&lng=14.474&zoom=8&datasetId=S5_SO2&layerId=SO2_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2019-08-31T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2019-08-31T00:00:00.000Z" target="_blank" id="_$12-eob" style="display: block;">Open in EO Browser</a>
@@ -569,7 +573,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$13-world-marker" style="left: 282px; top: 30px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=53.882&lng=159.368&zoom=7&datasetId=S5_O3&layerId=O3_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2020-01-24T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2020-01-24T00:00:00.000Z" target="_blank" id="_$13-eob" style="display: block;">Open in EO Browser</a>
@@ -601,7 +605,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$14-world-marker" style="left: 147px; top: 68px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=7.662&lng=-2.582&zoom=7&datasetId=S5_HCHO&layerId=HCHO_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2020-01-24T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2020-01-24T00:00:00.000Z" target="_blank" id="_$14-eob" style="display: block;">Open in EO Browser</a>
@@ -633,7 +637,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$15-world-marker" style="left: 244px; top: 44px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=36.989&lng=113.236&zoom=7&datasetId=S5_HCHO&layerId=HCHO_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2019-07-02T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2019-07-02T00:00:00.000Z" target="_blank" id="_$15-eob" style="display: block;">Open in EO Browser</a>
@@ -665,7 +669,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$16-world-marker" style="left: 274px; top: 105px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=-36.081&lng=149.454&zoom=7&datasetId=S5_AER_AI&layerId=AER_AI_340_AND_380_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2020-01-24T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2020-01-24T00:00:00.000Z" target="_blank" id="_$16-eob" style="display: block;">Open in EO Browser</a>
@@ -697,7 +701,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$17-world-marker" style="left: 163px; top: 61px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=15.766&lng=16.381&zoom=7&datasetId=S5_AER_AI&layerId=AER_AI_340_AND_380_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2019-07-04T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2019-07-04T00:00:00.000Z" target="_blank" id="_$17-eob" style="display: block;">Open in EO Browser</a>
@@ -729,7 +733,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$18-world-marker" style="left: 141px; top: 59px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=18.381&lng=-10.745&zoom=7&datasetId=S5_AER_AI&layerId=AER_AI_340_AND_380_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2019-07-04T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2019-07-04T00:00:00.000Z" target="_blank" id="_$18-eob" style="display: block;">Open in EO Browser</a>
@@ -761,7 +765,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$19-world-marker" style="left: 124px; top: 27px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=56.623&lng=-30.432&zoom=7&datasetId=S5_CLOUD&layerId=CLOUD_OPTICAL_THICKNESS_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2020-01-24T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2020-01-24T00:00:00.000Z" target="_blank" id="_$19-eob" style="display: block;">Open in EO Browser</a>
@@ -793,7 +797,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$20-world-marker" style="left: 236px; top: 90px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=-18.641&lng=103.854&zoom=7&datasetId=S5_CLOUD&layerId=CLOUD_BASE_PRESSURE_VISUALIZED&visualizationUrl=https://creodias.sentinel-hub.com/ogc/wms/2c5dc5f7-4c83-40dd-a520-da2c7221568d&toTime=2020-01-15T23:59:59.999Z&evalscript=&evalscripturl=&themeId=ATMOSPHERE&fromTime=2020-01-15T00:00:00.000Z" target="_blank" id="_$20-eob" style="display: block;">Open in EO Browser</a>
@@ -814,7 +818,7 @@
 					<a href="https://www.github.com" target="_blank">View on GitHub</a>
 				</div>
 				<div class="content right">
-					<a href="https://www.sentinel-hub.com" target="_blank"><img src="../_layout/sentinelhub.png" /></a>
+					<a href="https://www.sentinel-hub.com" target="_blank"><img src="../_layout/sentinelhub.svg" width="108" /></a>
 				</div>
 			</div>
 		</div>

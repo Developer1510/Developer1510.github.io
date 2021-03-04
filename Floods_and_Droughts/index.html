@@ -70,8 +70,12 @@
 		<div id="container-vertical">
 			<div id="container-horizontal">
 				<div id="sidebar">
-					<div id="sidebar-logo">
-						<a href="/"><img src="../_layout/logo.png" /></a>
+					<div id="sidebar-header">
+						<a href="/"><img src="../_layout/logo.svg" width="162" /></a>
+						<a class="right" href="javascript:toggleSearch();"><img src="../_layout/search.svg" width="24" /></a>
+					</div>
+					<div id="sidebar-search" class="hidden">
+						<input id="search-box" type="text" placeholder="Search..." onkeydown="searchKeyDown(this)" />
 					</div>
 					<div id="sidebar-content">
 						<h2>EO Browser pins repository</h2>
@@ -103,7 +107,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$0-world-marker" style="left: 216px; top: 64px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=13.16588&lng=80.16614&zoom=14&datasetId=S2L2A&layerId=2_MOISTURE-INDEX&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/657cf8f0-21f8-4990-a212-2671ae2c4341&toTime=2019-02-05T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FLOODING&fromTime=2019-02-05T00:00:00.000Z" target="_blank" id="_$0-eob" style="display: block;">Open in EO Browser</a>
@@ -135,7 +139,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$1-world-marker" style="left: 216px; top: 64px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=13.16588&lng=80.16614&zoom=14&datasetId=S2L2A&layerId=2_MOISTURE-INDEX&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/657cf8f0-21f8-4990-a212-2671ae2c4341&toTime=2019-05-31T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FLOODING&fromTime=2019-05-31T00:00:00.000Z" target="_blank" id="_$1-eob" style="display: block;">Open in EO Browser</a>
@@ -167,7 +171,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$2-world-marker" style="left: 216px; top: 64px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=13.16588&lng=80.16614&zoom=14&datasetId=S2L2A&layerId=2_MOISTURE-INDEX&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/657cf8f0-21f8-4990-a212-2671ae2c4341&toTime=2019-08-14T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FLOODING&fromTime=2019-08-14T00:00:00.000Z" target="_blank" id="_$2-eob" style="display: block;">Open in EO Browser</a>
@@ -199,7 +203,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$3-world-marker" style="left: 224px; top: 53px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=25.8299&lng=89.8483&zoom=11&datasetId=S2L1C&layerId=3_NDWI&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/9a82b8b4-46c0-4870-af4b-bb7ac41028e4&toTime=2017-03-16T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FLOODING&fromTime=2017-03-16T00:00:00.000Z" target="_blank" id="_$3-eob" style="display: block;">Open in EO Browser</a>
@@ -231,7 +235,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$4-world-marker" style="left: 224px; top: 53px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=25.8299&lng=89.8483&zoom=11&datasetId=S2L2A&layerId=3_NDWI&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/657cf8f0-21f8-4990-a212-2671ae2c4341&toTime=2019-07-19T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FLOODING&fromTime=2019-07-19T00:00:00.000Z" target="_blank" id="_$4-eob" style="display: block;">Open in EO Browser</a>
@@ -263,7 +267,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$5-world-marker" style="left: 189px; top: 87px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=-15.4924&lng=47.1094&zoom=11&datasetId=AWS_L8L1C&layerId=1_TRUE_COLOR&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/1f634895-5fc0-48de-aa90-d625f863f721&toTime=2017-01-18T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FLOODING&fromTime=2017-01-18T00:00:00.000Z" target="_blank" id="_$5-eob" style="display: block;">Open in EO Browser</a>
@@ -295,7 +299,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$6-world-marker" style="left: 189px; top: 87px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=-15.4924&lng=47.1094&zoom=11&datasetId=AWS_L8L1C&layerId=1_TRUE_COLOR&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/1f634895-5fc0-48de-aa90-d625f863f721&toTime=2020-01-27T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FLOODING&fromTime=2020-01-27T00:00:00.000Z" target="_blank" id="_$6-eob" style="display: block;">Open in EO Browser</a>
@@ -327,7 +331,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$7-world-marker" style="left: 70px; top: 40px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=41.2904&lng=-95.8987&zoom=10&datasetId=S2L1C&layerId=6-SWIR&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/9a82b8b4-46c0-4870-af4b-bb7ac41028e4&toTime=2018-03-01T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FLOODING&fromTime=2018-03-01T00:00:00.000Z" target="_blank" id="_$7-eob" style="display: block;">Open in EO Browser</a>
@@ -359,7 +363,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$8-world-marker" style="left: 70px; top: 40px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=41.2904&lng=-95.8987&zoom=10&datasetId=S2L2A&layerId=6-SWIR&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/657cf8f0-21f8-4990-a212-2671ae2c4341&toTime=2019-03-21T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FLOODING&fromTime=2019-03-21T00:00:00.000Z" target="_blank" id="_$8-eob" style="display: block;">Open in EO Browser</a>
@@ -391,7 +395,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$9-world-marker" style="left: 158px; top: 28px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=56.2704&lng=10.4713&zoom=10&datasetId=S2L2A&layerId=1_TRUE_COLOR&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/657cf8f0-21f8-4990-a212-2671ae2c4341&toTime=2020-06-23T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FLOODING&fromTime=2020-06-23T00:00:00.000Z" target="_blank" id="_$9-eob" style="display: block;">Open in EO Browser</a>
@@ -423,7 +427,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$10-world-marker" style="left: 158px; top: 28px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=56.2704&lng=10.4713&zoom=10&datasetId=S2L2A&layerId=1_TRUE_COLOR&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/657cf8f0-21f8-4990-a212-2671ae2c4341&toTime=2018-07-27T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FLOODING&fromTime=2018-07-27T00:00:00.000Z" target="_blank" id="_$10-eob" style="display: block;">Open in EO Browser</a>
@@ -444,7 +448,7 @@
 					<a href="https://www.github.com" target="_blank">View on GitHub</a>
 				</div>
 				<div class="content right">
-					<a href="https://www.sentinel-hub.com" target="_blank"><img src="../_layout/sentinelhub.png" /></a>
+					<a href="https://www.sentinel-hub.com" target="_blank"><img src="../_layout/sentinelhub.svg" width="108" /></a>
 				</div>
 			</div>
 		</div>

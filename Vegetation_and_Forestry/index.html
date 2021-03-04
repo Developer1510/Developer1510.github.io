@@ -50,8 +50,12 @@
 		<div id="container-vertical">
 			<div id="container-horizontal">
 				<div id="sidebar">
-					<div id="sidebar-logo">
-						<a href="/"><img src="../_layout/logo.png" /></a>
+					<div id="sidebar-header">
+						<a href="/"><img src="../_layout/logo.svg" width="162" /></a>
+						<a class="right" href="javascript:toggleSearch();"><img src="../_layout/search.svg" width="24" /></a>
+					</div>
+					<div id="sidebar-search" class="hidden">
+						<input id="search-box" type="text" placeholder="Search..." onkeydown="searchKeyDown(this)" />
 					</div>
 					<div id="sidebar-content">
 						<h2>EO Browser pins repository</h2>
@@ -83,7 +87,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$0-world-marker" style="left: 243px; top: 76px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=-2.0709&lng=111.74452&zoom=13&datasetId=S2L2A&layerId=8_BARREN-SOIL&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/2730da16-e275-480d-a58a-a6956ca3d025&toTime=2019-03-20T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FORESTRY&fromTime=2019-03-20T00:00:00.000Z" target="_blank" id="_$0-eob" style="display: block;">Open in EO Browser</a>
@@ -115,7 +119,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$1-world-marker" style="left: 169px; top: 69px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=6.02152&lng=23.25987&zoom=13&datasetId=S2L2A&layerId=FALSE-COLOR-11-8-2&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/2730da16-e275-480d-a58a-a6956ca3d025&toTime=2019-02-21T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FORESTRY&gamma=1.4&fromTime=2019-02-21T00:00:00.000Z" target="_blank" id="_$1-eob" style="display: block;">Open in EO Browser</a>
@@ -147,7 +151,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$2-world-marker" style="left: 106px; top: 82px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=-9.3756&lng=-52.1178&zoom=11&datasetId=S2L2A&layerId=1_TRUE-COLOR&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/2730da16-e275-480d-a58a-a6956ca3d025&toTime=2019-07-18T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FORESTRY&gain=3.3&gamma=1.5&fromTime=2019-07-18T00:00:00.000Z" target="_blank" id="_$2-eob" style="display: block;">Open in EO Browser</a>
@@ -179,7 +183,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$3-world-marker" style="left: 224px; top: 56px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=21.9502&lng=89.1671&zoom=12&datasetId=S2L2A&layerId=4_EVI&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/2730da16-e275-480d-a58a-a6956ca3d025&toTime=2020-01-27T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FORESTRY&fromTime=2020-01-27T00:00:00.000Z" target="_blank" id="_$3-eob" style="display: block;">Open in EO Browser</a>
@@ -211,7 +215,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$4-world-marker" style="left: 224px; top: 56px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=21.953&lng=89.052&zoom=9&datasetId=S3OLCI&layerId=3_OTCI&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/89b5c4ae-b850-4ca6-a0fd-12f506dd8fb0&toTime=2020-01-27T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FORESTRY&fromTime=2020-01-27T00:00:00.000Z" target="_blank" id="_$4-eob" style="display: block;">Open in EO Browser</a>
@@ -243,7 +247,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$5-world-marker" style="left: 187px; top: 23px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=62.072&lng=44.789&zoom=9&datasetId=S2L2A&layerId=4_EVI&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/2730da16-e275-480d-a58a-a6956ca3d025&toTime=2019-08-12T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FORESTRY&fromTime=2019-08-12T00:00:00.000Z" target="_blank" id="_$5-eob" style="display: block;">Open in EO Browser</a>
@@ -275,7 +279,7 @@
 							</div>
 							<div class="pin-extra">
 								<div class="pin-map">
-									<img class="pin-world" src="../_layout/world.png" />
+									<img class="pin-world" src="../_layout/world.svg" width="300" />
 									<img class="pin-marker" src="../_layout/world_marker.png" id="_$6-world-marker" style="left: 179px; top: 76px; display: block;" />
 									<div class="pin-buttons">
 										<a href="https://apps.sentinel-hub.com/eo-browser/?&lat=-1.5937&lng=34.8469&zoom=12&datasetId=S2L2A&layerId=8_BARREN-SOIL&visualizationUrl=https://services.sentinel-hub.com/ogc/wms/2730da16-e275-480d-a58a-a6956ca3d025&toTime=2020-01-02T23:59:59.999Z&evalscript=&evalscripturl=&themeId=FORESTRY&fromTime=2020-01-02T00:00:00.000Z" target="_blank" id="_$6-eob" style="display: block;">Open in EO Browser</a>
@@ -296,7 +300,7 @@
 					<a href="https://www.github.com" target="_blank">View on GitHub</a>
 				</div>
 				<div class="content right">
-					<a href="https://www.sentinel-hub.com" target="_blank"><img src="../_layout/sentinelhub.png" /></a>
+					<a href="https://www.sentinel-hub.com" target="_blank"><img src="../_layout/sentinelhub.svg" width="108" /></a>
 				</div>
 			</div>
 		</div>
