@@ -3,6 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - echo $GIT_HUB_AUTH_TOKEN
       - pip3 install Pillow
       - pip3 install markdown
   build:
@@ -13,7 +14,7 @@ phases:
     commands:
       - git config user.email "codebuild@aws.amazon.com"
       - git config user.name "AWS CodeBuild"
-      - git remote set-url origin https://$GIT_HUB_AUTH_USER:$GIT_HUB_AUTH_TOKEN@github.com/$GIT_HUB_REPO
+      - git remote set-url origin https://Developer1510:$GIT_HUB_AUTH_TOKEN@github.com/developer1510/Developer1510.github.io.git
       - git add */index.html
       - git add index.html
       - git commit -m [CodeBuild]

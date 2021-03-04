@@ -1,24 +1,3 @@
-var isSearchDisplayed = false;
-
-function toggleSearch() {
-	isSearchDisplayed = !isSearchDisplayed;
-	document.getElementById("sidebar-search").className = isSearchDisplayed ? 'visible' : 'hidden';
-	if (!isSearchDisplayed) {
-		document.getElementById("sidebar-search").value = '';
-	}
-	performSearch('');
-}
-
-function searchKeyDown(searchElement) {
-	if (event.key === 'Enter') {
-		performSearch(searchElement.value);        
-    }
-}
-
-function performSearch(searchValue) {
-	
-}
-
 function pinLeft(groupId) {
 	var group = groups[groupId];
 	var currIndex = group['index']
