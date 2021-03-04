@@ -1,3 +1,4 @@
+import sys
 import json
 import re
 from PIL import Image
@@ -47,7 +48,8 @@ with open('themes.json', 'r', encoding='utf-8') as themes_json_file, \
     html = html.replace('{content}', html_content)
     html = html.replace('{script}', '')
     html = html.replace('{layout_dir}', '_layout')
-    
+    html = html.replace('{github_repo_url}', sys.argv[1] if len(sys.argv) > 1 else 'https://www.github.com')
+
     output_html_file = open('index.html', 'w', encoding='utf-8')
     output_html_file.write(html)
     output_html_file.close() 

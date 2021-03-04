@@ -123,6 +123,7 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
             html = html_container_template.replace('{content}', html_content)
             html = html.replace('{script}', javascript)
             html = html.replace('{layout_dir}', '../_layout')
+            html = html.replace('{github_repo_url}', sys.argv[1] if len(sys.argv) > 1 else 'https://www.github.com')
 
             output_html_file = open(os.path.join(pins_dir, 'index.html'), 'w', encoding='utf-8')
             output_html_file.write(html)

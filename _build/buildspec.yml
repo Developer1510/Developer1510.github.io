@@ -7,8 +7,8 @@ phases:
       - pip3 install markdown
   build:
     commands:
-      - python _build/build_themes.py
-      - python _build/build_pins.py
+      - python _build/build_themes.py https://www.github.com/$GIT_HUB_REPO
+      - python _build/build_pins.py https://www.github.com/$GIT_HUB_REPO
   post_build:
     commands:
       - git config user.email "codebuild@aws.amazon.com"
