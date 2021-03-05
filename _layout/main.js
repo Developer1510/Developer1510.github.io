@@ -6,6 +6,9 @@ function toggleSearch() {
 	if (!isSearchDisplayed) {
 		document.getElementById("search-box").value = '';
 	}
+	else {
+		document.getElementById("search-box").focus();
+	}
 	performSearch('');
 }
 
