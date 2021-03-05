@@ -29,12 +29,15 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
                         print('Processing JSON file "' + pins_json_file_name + '"')
                         pins = json.load(pins_json_file)
                         for pin in pins:
+                            pin_id = pin.get('_id') or ''
                             is_location = 'lat' in pin and 'lng' in pin
                             is_eob = is_location and 'zoom' in pin
                             
                             pin_lib_extra = pin.get('pinLibrary')
-                            group_id = pin_lib_extra.get('groupId') if pin_lib_extra else None 
-                            thumbnail_path = pin_lib_extra.get('thumbnailPath') if pin_lib_extra else None 
+                            group = pin_lib_extra.get('group') if pin_lib_extra else None 
+                            thumbnail_path = pin_lib_extra.get('thumbnailPath') if pin_lib_extra else None
+                            if thumbnail_path is None and pin_id:
+                                thumbnail_path = 'fig/' + pin_id + '.jpg'
                             download_url = pin_lib_extra.get('highResolutionImageUrl') if pin_lib_extra else None 
                             
                             # generate EOB URL
@@ -47,20 +50,24 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
                                         eob_url += '&' + pin_key + '=' + str(pin.get(pin_key))
                                         
                             
-                            # if group not specified, autogenerate the groupID
-                            if not group_id:
-                                group_id = '_$' + str(pin_auto_group_serial)
-                                pin_auto_group_serial += 1
+                            # if group not specified, use the JSON "_id" field, otherwise autogenerate the groupID
+                            if not group:
+                                if pin_id:
+                                    group = '_$' + pin_id
+                                else:
+                                    group = '_$' + str(pin_auto_group_serial)
+                                    pin_auto_group_serial += 1
                             
                             # get the group for this pin
-                            pins_in_group = pins_per_group.get(group_id)
+                            pins_in_group = pins_per_group.get(group)
                             if not pins_in_group:
                                 pins_in_group = []
-                                pins_per_group[group_id] = pins_in_group
+                                pins_per_group[group] = pins_in_group
                             
                             # add current pin data to the group
                             pin_data = { \
-                                'group_id': group_id, \
+                                'id': pin_id, \
+                                'group': group, \
                                 'is_location': is_location, \
                                 'is_eob': is_eob, \
                                 'title': pin.get('title') or '', \
@@ -71,7 +78,8 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
                                 'world_pos_y': str(int((-pin['lat'] + 90) * 150 / 180)) if is_location else '0', \
                                 'eob_url': eob_url, \
                                 'download_url': download_url if download_url else '', \
-                                'description': markdown.markdown(pin['description']) \
+                                'description': markdown.markdown(pin['description']), \
+                                'visible': 'true' \
                             }
                             pins_in_group.append(pin_data)    
                 except Exception as e:
@@ -81,20 +89,20 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
             javascript = '\t\t\tvar groups = [];\n'
     
             # put the first pin of each group into the HTML and append all pins to javascript
-            for group_id in pins_per_group:
-                pins_in_group = pins_per_group[group_id]
+            for group in pins_per_group:
+                pins_in_group = pins_per_group[group]
                 
                 html_pager = ''
                 if len(pins_in_group) > 1:
                     for i in range(0, len(pins_in_group)):
                         pager_image = 'pager_current' if i == 0 else 'pager_other'
-                        html_pager += '<img src="{layout_dir}/' + pager_image + '.png" id="' + group_id + '_pin' + str(i) + '" />'
+                        html_pager += '<img src="{layout_dir}/' + pager_image + '.png" id="' + group + '_pin' + str(i) + '" />'
                 
-                javascript += "\t\t\tgroups['" + group_id +"'] = {\n\t\t\t\t'pins':[\n"
+                javascript += "\t\t\tgroups['" + group +"'] = {\n\t\t\t\t'pins':[\n"
                 for pin in pins_in_group:
                     javascript += '\t\t\t\t\t{'
                     for pin_field in pin:
-                        if not pin_field == 'group_id':
+                        if not pin_field == 'group':
                             javascript += "'" + pin_field + "': '" + str(pin[pin_field]).replace("'", "\\'") + "', "
                     javascript += '},\n'
                 javascript += '\t\t\t\t]\n\t\t\t};\n'
@@ -103,7 +111,7 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
                 
                 html_content += pin_html_template \
                     .replace('{pager}', html_pager) \
-                    .replace('{group_id}', pin['group_id']) \
+                    .replace('{group}', pin['group']) \
                     .replace('{title}', pin['title']) \
                     .replace('{date}', pin['date']) \
                     .replace('{type}', pin['type']) \

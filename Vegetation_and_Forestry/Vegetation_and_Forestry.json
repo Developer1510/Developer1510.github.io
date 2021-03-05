@@ -1,5 +1,6 @@
 [
    {
+      "_id":"ebcf53ce-4466-4f5d-8665-9b0e4173895d-pin",
       "title":"Forestry in Indonesia, 2018 (Barren soil)",
       "lat":-2.0709,
       "lng":111.74452,
@@ -19,6 +20,7 @@
       }
    },
    {
+      "_id":"6e436db8-9a90-43b8-9a88-fcccfa151d92-pin",
       "title":"Forestry in Central African Republic (False color 11,8,2)",
       "lat":6.02152,
       "lng":23.25987,
@@ -39,6 +41,7 @@
       }
    },
    {
+      "_id":"2d238ebb-0c8d-4989-bfb7-6f362205e85f-pin",
       "title":"Forestry in the Amazon rainforest",
       "lat":-9.3756,
       "lng":-52.1178,
@@ -60,6 +63,7 @@
       }
    },
    {
+      "_id":"9a6b8b72-1535-4f24-93d9-273ed6bcdd65-pin",
       "title":"Sundarbans, Mangrove forest (EVI)",
       "lat":21.9502,
       "lng":89.1671,
@@ -74,12 +78,13 @@
       "description":"[Mangrove forests](https://oceanservice.noaa.gov/facts/mangroves.html) have exceptionally high biodiversity and are indispensable in erosion reduction. There are 80 different species of mangrove trees known, growing in low-oxygen soil, where slow moving waters accumulate fine sediments for the roots to grow in. The [Sundarbans Mangrove forest](https://whc.unesco.org/en/list/798/) covers 140,000 ha of land, making it one of the largest Mangrove forests in the world. It provides livelihood to many people in the area and is a home to, among others, 250 bird species and the endangered Royal Bengal Tiger. The forest is threatened by seasonal monsoons, cyclones and tidal waves, which cause salinization.",
       "fromTime":"2020-01-27T00:00:00.000Z",
       "pinLibrary": {
-         "groupId": "Sundarbans, Mangrove forest",
+         "group": "Sundarbans, Mangrove forest",
          "thumbnailPath": "fig/Sundarbans_EVI_thumbnail.jpg",
          "highResolutionImageUrl": "https://www.flickr.com/photos/sentinelhub/50083279617/"
       }
    },
    {
+      "_id":"6defb4f0-4750-454b-8bd9-65f3c510d39c-pin",
       "title":"Sundarbans, Mangrove forest (OTCI)",
       "lat":21.953,
       "lng":89.052,
@@ -94,12 +99,13 @@
       "description":"[Mangrove forests](https://oceanservice.noaa.gov/facts/mangroves.html) have exceptionally high biodiversity and are indispensable in erosion reduction. There are 80 different species of mangrove trees known, growing in low-oxygen soil, where slow moving waters accumulate fine sediments for the roots to grow in. The [Sundarbans Mangrove forest](https://whc.unesco.org/en/list/798/) covers 140,000 ha of land, making it one of the largest Mangrove forests in the world. It provides livelihood to many people in the area and is a home to, among others, 250 bird species and the endangered Royal Bengal Tiger. The forest is threatened by seasonal monsoons, cyclones and tidal waves, which cause salinization.",
       "fromTime":"2020-01-27T00:00:00.000Z",
       "pinLibrary": {
-         "groupId": "Sundarbans, Mangrove forest",
+         "group": "Sundarbans, Mangrove forest",
          "thumbnailPath": "fig/Sundarbans_OTCI_thumbnail.jpg",
          "highResolutionImageUrl": "https://www.flickr.com/photos/sentinelhub/49658220567/"
       }
    },
    {
+      "_id":"25346393-3e9d-4409-a80b-8a714ee25a10-pin",
       "title":"Russian Taiga (EVI)",
       "lat":62.072,
       "lng":44.789,
@@ -119,6 +125,7 @@
       }
    },
    {
+      "_id":"1d4bcde2-f2b7-4bd8-8634-fa6f2c6c86f3-pin",
       "title":"Serengetti National Park (right) (Barren Soil)",
       "lat":-1.5937,
       "lng":34.8469,

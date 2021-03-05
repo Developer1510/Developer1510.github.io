@@ -4,7 +4,7 @@ function toggleSearch() {
 	isSearchDisplayed = !isSearchDisplayed;
 	document.getElementById("sidebar-search").className = isSearchDisplayed ? 'visible' : 'hidden';
 	if (!isSearchDisplayed) {
-		document.getElementById("sidebar-search").value = '';
+		document.getElementById("search-box").value = '';
 	}
 	performSearch('');
 }
@@ -16,7 +16,43 @@ function searchKeyDown(searchElement) {
 }
 
 function performSearch(searchValue) {
+	for (var groupId in groups) {
+		var group = groups[groupId];
+		var pins = group['pins'];
+		var currIndex = group['index'];
+		if (currIndex == undefined) {
+			currIndex = 0;
+		}
+		
+		for (var pinIndex in pins) {
+			var pin = pins[pinIndex];
+			pin['visible'] = (stringMatch(pin['title'], searchValue) || stringMatch(pin['description'], searchValue)) ? 'true' : 'false';
+		}
+		
+		if (pins[currIndex]['visible'] != 'true') {
+			currIndex = getNextVisiblePin(groupId, currIndex);
+		}
+		updatePin(groupId, group, currIndex);
+	}
+}
+
+function stringMatch(haystack, needle) {
+	if (!needle) {
+		return true;
+	}
+	if (!haystack) {
+		return false;
+	}
 	
+	haystack = haystack.toLowerCase();
+	var tokens = needle.toLowerCase().split(' ');
+	for (var i in tokens) {
+		var token = tokens[i];
+		if ((token.length > 0) && !haystack.includes(token)) {
+			return false;
+		}
+	}
+	return true;
 }
 
 function pinLeft(groupId) {
@@ -25,9 +61,7 @@ function pinLeft(groupId) {
 	if (currIndex == undefined) {
 		currIndex = 0;
 	}
-	if (currIndex > 0) {
-		currIndex--;
-	}
+	currIndex = getPrevVisiblePin(groupId, currIndex)
 	updatePin(groupId, group, currIndex);
 }
 
@@ -37,20 +71,54 @@ function pinRight(groupId) {
 	if (currIndex == undefined) {
 		currIndex = 0;
 	}
-	if (currIndex < group['pins'].length - 1) {
-		currIndex++;
-	}
+	currIndex = getNextVisiblePin(groupId, currIndex)
 	updatePin(groupId, group, currIndex);
+}
+
+function getGroupPinsCount(groupId) {
+	var count = 0;
+	var pins = groups[groupId]['pins'];
+	for (var pinIndex in pins) {
+		var pin = pins[pinIndex];
+		if (pin['visible'] == 'true') {
+			count++;
+		}
+	}
+	return count;
+}
+
+function getPrevVisiblePin(groupId, currIndex) {
+	var pins = groups[groupId]['pins'];
+	while (currIndex > 0) {
+		currIndex--;
+		if (pins[currIndex]['visible'] == 'true') {
+			return currIndex;
+		}
+	}
+	return 0;
+}
+
+function getNextVisiblePin(groupId, currIndex) {
+	var pins = groups[groupId]['pins'];
+	while (currIndex < pins.length - 1) {
+		currIndex++;
+		if (pins[currIndex]['visible'] == 'true') {
+			return currIndex;
+		}
+	}
+	return getPrevVisiblePin(groupId, currIndex);
 }
 
 function updatePin(groupId, group, currIndex) {
 	group['index'] = currIndex;
-	var pinCount = group['pins'].length;
+	var pinCount = getGroupPinsCount(groupId);
 	document.getElementById(groupId + '-left').style.display = (currIndex > 0) ? 'block' : 'none';
 	document.getElementById(groupId + '-right').style.display = (currIndex < pinCount - 1) ? 'block' : 'none';
 	
-	var pin = group['pins'][currIndex];
+	var pins = group['pins'];
+	var pin = pins[currIndex];
 	
+	document.getElementById(groupId + '-container').style.display = (pinCount > 0) ? 'block' : 'none';
 	document.getElementById(groupId + '-title').innerHTML = pin['title'];
 	document.getElementById(groupId + '-image-path').src = pin['thumbnail_path'];
 	document.getElementById(groupId + '-date').innerHTML = pin['date'];
@@ -65,7 +133,9 @@ function updatePin(groupId, group, currIndex) {
 	worldMarker.style.left = pin['world_pos_x'] + 'px'; 
 	worldMarker.style.top = pin['world_pos_y'] + 'px';
 	
-	for (var i = 0; i < pinCount; i++) {
-		document.getElementById(groupId + '_pin' + i).src = layoutDir + 'pager_' + ((i == currIndex) ? 'current' : 'other') + '.png'; 
+	if (pins.length > 1) {
+		for (var i = 0; i < pins.length; i++) {
+			document.getElementById(groupId + '_pin' + i).src = layoutDir + 'pager_' + ((i == currIndex) ? 'current' : 'other') + '.png'; 
+		}
 	}
 }

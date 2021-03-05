@@ -1,5 +1,6 @@
 [
    {
+      "_id":"0c2aa3da-9d6d-4689-b87c-21ca674b86e2-pin",
       "title":"Sundarbans, Mangrove forest (NDVI)",
       "lat":21.9502,
       "lng":89.1671,
@@ -19,6 +20,7 @@
       }
    },
    {
+      "_id":"dfbd81c4-a0b4-4336-8280-d2927a056a98-pin",
       "title":"Italian Agriculture (Moisture Index)",
       "lat":45.7955,
       "lng":13.0957,
@@ -38,6 +40,7 @@
       }
    },
    {
+      "_id":"89278653-744a-493c-8b42-17eee0a0159c-pin",
       "title":"Heavy Sedimentation Flow of Betsiboka River (False Color)",
       "lat":-15.889,
       "lng":46.3548,
@@ -57,6 +60,7 @@
       }
    },
    {
+      "_id":"ca02465d-2d16-445b-a3c9-b592bf307118-pin",
       "title":"Richat Structure, Mauretania",
       "lat":21.1476,
       "lng":-11.4478,
@@ -76,6 +80,7 @@
       }
    },
    {
+      "_id":"8a552c4a-d0fa-4215-a14e-232a31e7e89b-pin",
       "title":"Glacier Grey, Chile",
       "lat":-50.9647,
       "lng":-73.3243,
@@ -95,6 +100,7 @@
       }
    },
    {
+      "_id":"85fa5b06-cb38-4b80-b0b8-fbebe7699f6f-pin",
       "title":"Venice, Italy",
       "lat":45.4585,
       "lng":12.28701,
@@ -114,6 +120,7 @@
       }
    },
    {
+      "_id":"5035df51-8fad-4bf1-a7c8-140a252b8eaa-pin",
       "title":"Stromboli, Province of Messina, Italy (SWIR)",
       "lat":38.7931301,
       "lng":15.211227399999984,
@@ -133,6 +140,7 @@
       }
    },
    {
+      "_id":"b6f56673-c3cc-43c6-bed6-8a0e5337dd03-pin",
       "title":"Wildfires in Croatia, july 2017 (SWIR)",
       "lat":43.4918,
       "lng":16.619,

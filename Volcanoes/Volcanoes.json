@@ -1,5 +1,6 @@
 [
    {
+      "_id":"91dc1705-01dc-47d7-a21c-1c9e3ec8899f-pin",
       "title":"Kilauea (False Color Urban)",
       "lat":19.3523,
       "lng":-155.2516,
@@ -19,6 +20,7 @@
       }
    },
    {
+      "_id":"6344a2eb-d2f9-4b3e-a46c-9087c43210f0-pin",
       "title":"Etna (IR Highlights)",
       "lat":37.74371,
       "lng":15.004059999999981,
@@ -38,6 +40,7 @@
       }
    },
    {
+      "_id":"92e36590-15b5-437a-be2e-c370e4ec8f42-pin",
       "title":"Nyiragongo (False Color Urban)",
       "lat":-1.5220378,
       "lng":29.24945660000003,
@@ -57,6 +60,7 @@
       }
    },
    {
+      "_id":"11cb1c7f-d9ba-42fc-b65d-b9d8c29345e8-pin",
       "title":"Yasur Volcano, Vanatu (IR Highlights)",
       "lat":-19.52667,
       "lng":169.43665,
@@ -76,6 +80,7 @@
       }
    },
    {
+      "_id":"64264357-671f-4d50-87db-7e4f1934a6c4-pin",
       "title":"Pacaya (IR Highlights)",
       "lat":14.385467017006029,
       "lng":-90.61514854431152,
@@ -95,6 +100,7 @@
       }
    },
    {
+      "_id":"c9d6f4cd-7e82-454f-b8ad-2e600a76a6c9-pin",
       "title":"Stromboli, Province of Messina, Italy (IR Highlights)",
       "lat":38.7931301,
       "lng":15.211227399999984,
@@ -114,6 +120,7 @@
       }
    },
    {
+      "_id":"9f0d62c0-0e32-47e9-93f8-cdd1b8f07bf2-pin",
       "title":"Erta Ale, Ethiopia (False Color Urban)",
       "lat":13.592683183820354,
       "lng":40.68614959716797,
@@ -133,6 +140,7 @@
       }
    },
    {
+      "_id":"bf6c66e8-ab61-47b1-8e49-b108d5ba9a80-pin",
       "title":"Jebel Marra, Sudan (not active)",
       "lat":12.92987,
       "lng":24.18983,

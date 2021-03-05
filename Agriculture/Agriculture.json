@@ -1,5 +1,6 @@
 [
    {
+      "_id":"c49d89b4-3a69-4d54-b909-3febf9ca9fac-pin",
       "title":"Agriculture in Saudi Arabia (Moisture Index)",
       "lat":26.21913,
       "lng":43.49539,
@@ -19,6 +20,7 @@
       }
    },
    {
+      "_id":"b52a736a-3109-4f1e-bb05-dbe4a13830b5-pin",
       "title":"Agriculture in the Veneto Region, Italy (Barren Soil)",
       "lat":45.7955,
       "lng":13.0957,
@@ -38,6 +40,7 @@
       }
    },
    {
+      "_id":"acd22bb6-d758-447f-af40-3360c6f9a282-pin",
       "title":"Agriculture in California, USA (NDVI)",
       "lat":36.70772,
       "lng":-120.60242,
@@ -57,6 +60,7 @@
       }
    },
    {
+      "_id":"d9f1bf2f-f1a7-43dc-9415-18a178bc1e17-pin",
       "title":"Agriculture in Ethiopia (False Color)",
       "lat":7.36579,
       "lng":39.20317,
@@ -76,6 +80,7 @@
       }
    },
    {
+      "_id":"c7982ecb-b930-495a-aaf2-556aabb620d7-pin",
       "title":"Agriculture in West Bengal, India (False Color 11,8,2)",
       "lat":22.05565,
       "lng":87.34354,
@@ -95,6 +100,7 @@
       }
    },
    {
+      "_id":"f7ed278a-ddff-457f-96ae-3870c2a2369d-pin",
       "title":"Agriculture in Vietnam (False Color 11,8,2)",
       "lat":8.9473,
       "lng":105.0001,
@@ -114,6 +120,7 @@
       }
    },
    {
+      "_id":"f867e7f6-3a1d-47f5-83ca-bf4d3ca4116c-pin",
       "title":"Agriculture in Poland (Moisture Stress)",
       "lat":52.669,
       "lng":16.1423,
@@ -133,6 +140,7 @@
       }
    },
    {
+      "_id":"6eef122c-7146-43d8-8a64-285c4dbb83a0-pin",
       "title":"Agriculture along the Nile river (EVI)",
       "lat":26.0896,
       "lng":32.3819,
@@ -152,6 +160,7 @@
       }
    },
    {
+      "_id":"442162d8-3d20-4c28-8d99-fe25ba6eda77-pin",
       "title":"Agriculture in Zambia (Enhanced True Color)",
       "lat":-14.7857,
       "lng":27.1771,
@@ -173,6 +182,7 @@
       }
    },
    {
+      "_id":"c6beb786-d672-4be8-aaf1-9c6909dcee5a-pin",
       "title":"Agriculture in Kansas, USA (False Color)",
       "lat":37.79317,
       "lng":-95.39549,
@@ -192,6 +202,7 @@
       }
    },
    {
+      "_id":"9e8ad773-94ab-41b5-be2c-95666d0d45f8-pin",
       "title":"Agriculture in Limpopo, South Africa (Enhanced True Color)",
       "lat":-24.8591,
       "lng":28.78847,
@@ -213,6 +224,7 @@
       }
    },
    {
+      "_id":"75c671ac-4cbf-4985-954e-7fa6b7a39b5e-pin",
       "title":"Agriculture in Cambodia (False Color 11,8,2)",
       "lat":12.77723,
       "lng":104.51105,
@@ -232,6 +244,7 @@
       }
    },
    {
+      "_id":"dfc5167b-b126-4f86-822c-2dda727a42b6-pin",
       "title":"Agriculture in the Burdekin River Delta, Australia (False Color 11,8,2)",
       "lat":-19.6355,
       "lng":147.2532,
@@ -251,6 +264,7 @@
       }
    },
    {
+      "_id":"61c9203d-9a57-46ee-b257-44dc0539fc21-pin",
       "title":"Agriculture in Ontario, Canada (Barren Soil)",
       "lat":43.6926,
       "lng":-81.0152,
@@ -270,6 +284,7 @@
       }
    },
    {
+      "_id":"09485fc7-004f-4928-95bd-25e979dfa2e3-pin",
       "title":"Agriculture at the Israel-Jordan border",
       "lat":31.1122,
       "lng":35.4326,

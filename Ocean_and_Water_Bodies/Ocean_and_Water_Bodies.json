@@ -1,5 +1,6 @@
 [
    {
+      "_id":"3829c46f-c752-4612-aef2-032573cb9603-pin",
       "title":"Heavy Sedimentation Flow of Betsiboka River (False Color)",
       "lat":-15.889,
       "lng":46.3548,
@@ -14,12 +15,13 @@
       "description":"The beautiful Betsiboka river delta is a dramatic example of massive deforestation, that occurs in Madagascar every year. One of the biggest culprits is the slash and burn agriculture, called [tavy](https://www.madamagazine.com/en/english-tavy-kahlschlag-einer-insel/), where the forest is burnt and then farmed in the following months. The other deforestation causes include grazing, logging and the production of coal. The forest grows back after being cut down, but until then, the barren soil is vulnerable to erosion by heavy rains. The rain transports it into rivers and from their into the sea, contaminating sea life with deposited iron oxides. As soil formation is a process taking thousands of years, soil erodes away each year, until it can no longer support a forest. Due to these processes, Madagascar has already lost [80 % of its primary forests](https://www.eoi.es/blogs/guidopreti/2014/02/04/deforestation-in-madagascar-a-threat-to-its-biodiversity/), causing many indigenous species, such as [lemurs](https://monkeysandmountains.com/lemurs-madagascar/), to be endangered.",
       "fromTime":"2017-08-12T00:00:00.000Z",
       "pinLibrary": {
-         "groupId": "Sedimentation Flow of Betsiboka River",
+         "group": "Sedimentation Flow of Betsiboka River",
          "thumbnailPath": "fig/betsiboka_low_thumbnail.jpg",
          "highResolutionImageUrl": "https://www.flickr.com/photos/sentinelhub/31984210167/"
       }
    },
    {
+      "_id":"8f9140ef-08e2-4b10-9817-d97609b6d3e9-pin",
       "title":"Low Sedimentation Flow of Betsiboka River (False Color)",
       "lat":-15.889,
       "lng":46.3548,
@@ -34,12 +36,13 @@
       "description":"The beautiful Betsiboka river delta is a dramatic example of massive deforestation, that occurs in Madagascar every year. One of the biggest culprits is the slash and burn agriculture, called [tavy](https://www.madamagazine.com/en/english-tavy-kahlschlag-einer-insel/), where the forest is burnt and then farmed in the following months. The other deforestation causes include grazing, logging and the production of coal. The forest grows back after being cut down, but until then, the barren soil is vulnerable to erosion by heavy rains. The rain transports it into rivers and from their into the sea, contaminating sea life with deposited iron oxides. As soil formation is a process taking thousands of years, soil erodes away each year, until it can no longer support a forest. Due to these processes, Madagascar has already lost [80 % of its primary forests](https://www.eoi.es/blogs/guidopreti/2014/02/04/deforestation-in-madagascar-a-threat-to-its-biodiversity/), causing many indigenous species, such as [lemurs](https://monkeysandmountains.com/lemurs-madagascar/), to be endangered.",
       "fromTime":"2017-08-02T00:00:00.000Z",
       "pinLibrary": {
-         "groupId": "Sedimentation Flow of Betsiboka River",
+         "group": "Sedimentation Flow of Betsiboka River",
          "thumbnailPath": "fig/betsiboka_high_thumbnail.jpg",
          "highResolutionImageUrl": "https://www.flickr.com/photos/sentinelhub/46200454534/"
       }
    },
    {
+      "_id":"b3e35c6b-e2b8-404a-b346-928f5fb5ff27-pin",
       "title":"Lake Natron, Tanzania",
       "lat":-2.3677,
       "lng":36.0757,
@@ -59,6 +62,7 @@
       }
    },
    {
+      "_id":"31eae973-e8f1-4a3e-8693-3c531b3ade27-pin",
       "title":"Roper River, Tanzania (Enhanced False Color)",
       "lat":-14.715,
       "lng":135.2479,
@@ -79,6 +83,7 @@
       }
    },
    {
+      "_id":"de645b54-7991-4f66-8863-e835daef9f8b-pin",
       "title":"Algae Blooms of Don River, Russia (Water Quality Viewer)",
       "lat":47.9113,
       "lng":42.7739,
@@ -98,6 +103,7 @@
       }
    },
    {
+      "_id":"fc2768d2-78f3-4aec-9e35-4ee5b78563f0-pin",
       "title":"Salt lake Mackay, Australia",
       "lat":-22.4015,
       "lng":128.7804,
@@ -117,6 +123,7 @@
       }
    },
    {
+      "_id":"e435f861-6c7c-4d06-b75a-9fb1b50b3d0d-pin",
       "title":"Shark Bay, Australia",
       "lat":-25.9898,
       "lng":113.852,
@@ -131,12 +138,13 @@
       "description":"Located 800 km north of Perth in the Indian Ocean, Shark Bay is a unique [UNESCO World Heritage](https://whc.unesco.org/en/about/) site. The bay is renown for having the largest [seagrass](https://ocean.si.edu/ocean-life/plants-algae/seagrass-and-seagrass-beds) meadow in the world (~4.000 square kilometers), forming a feeding ground for large populations of aquatic life, including [dugong](https://www.worldwildlife.org/species/dugong). The seagrass can be seen from space in the shallower areas of the bay, contrasting strongly with the dark brown sand on the surrounding land. The water in Shark Bay is up to twice as salty as the sea, forming one of few marine environments in the world with [hypersaline waters](https://www.sharkbay.org/nature/geology/salinity/) and hosts [stromatolites](https://www.bushheritage.org.au/species/stromatolites), colonies of algae that build mounds and are among the oldest forms of life on earth.",
       "fromTime":"2019-01-10T00:00:00.000Z",
       "pinLibrary": {
-         "groupId": "Shark Bay, Australia (True Color/Water Quality Viewer)",
+         "group": "Shark Bay, Australia (True Color/Water Quality Viewer)",
          "thumbnailPath": "fig/shark_bay_thumbnail.jpg",
          "highResolutionImageUrl": "https://www.flickr.com/photos/sentinelhub/50096741223/"
       }
    },
    {
+      "_id":"da008ebc-353c-4bae-aad1-d4e80e69b84a-pin",
       "title":"Shark Bay, Australia (Water Quality Viewer)",
       "lat":-25.9898,
       "lng":113.852,
@@ -153,12 +161,13 @@
       "description":"Located 800 km north of Perth in the Indian Ocean, Shark Bay is a unique [UNESCO World Heritage](https://whc.unesco.org/en/about/) site. The bay is renown for having the largest [seagrass](https://ocean.si.edu/ocean-life/plants-algae/seagrass-and-seagrass-beds) meadow in the world (~4.000 square kilometers), forming a feeding ground for large populations of aquatic life, including [dugong](https://www.worldwildlife.org/species/dugong). The seagrass can be seen from space in the shallower areas of the bay, contrasting strongly with the dark brown sand on the surrounding land. The water in Shark Bay is up to twice as salty as the sea, forming one of few marine environments in the world with [hypersaline waters](https://www.sharkbay.org/nature/geology/salinity/) and hosts [stromatolites](https://www.bushheritage.org.au/species/stromatolites), colonies of algae that build mounds and are among the oldest forms of life on earth.",
       "fromTime":"2019-01-10T00:00:00.000Z",
       "pinLibrary": {
-         "groupId": "Shark Bay, Australia (True Color/Water Quality Viewer)",
+         "group": "Shark Bay, Australia (True Color/Water Quality Viewer)",
          "thumbnailPath": "fig/shark_bay_quality_thumbnail.jpg",
          "highResolutionImageUrl": "https://www.flickr.com/photos/sentinelhub/50096780413/"
       }
    },
    {
+      "_id":"adf324cb-97ab-4384-b163-e31496c8b375-pin",
       "title":"Barrier Reef, New Caledonia (Enhanced True Color)",
       "lat":-20.2103,
       "lng":164.1529,
@@ -180,6 +189,7 @@
       }
    },
    {
+      "_id":"5cd1c0ff-de66-486e-b66c-be20818f4ee4-pin",
       "title":"Coastal waves, Tyrrhenian Sea",
       "lat":41.4969,
       "lng":12.452,
