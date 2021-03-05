@@ -261,8 +261,8 @@ h3 {
 
 .pin-marker {
 	position: absolute;
-	margin-left: -3px;
-	margin-top: -3px;
+	margin-left: -4px;
+	margin-top: -4px;
 }
 
 @media only screen and (min-width: 850px) {
