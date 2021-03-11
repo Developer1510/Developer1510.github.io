@@ -19,20 +19,36 @@ function searchKeyDown(searchElement) {
 }
 
 function performSearch(searchValue) {
+	if (typeof groups !== 'undefined') {
+		performPinsSearch(searchValue);
+	}
+	if (typeof texts !== 'undefined') {
+		performThemeSearch(searchValue);
+	}
+}
+
+function performThemeSearch(searchValue) {
+	for (var themeId in texts) {
+		var themeContainer = document.getElementById(themeId);
+		if (themeContainer) {
+			var themeText = texts[themeId];
+			themeContainer.style.display = stringMatch(themeText, searchValue) ? 'inline-block' : 'none';
+		}
+	}
+}
+
+function performPinsSearch(searchValue) {
 	for (var groupId in groups) {
 		var group = groups[groupId];
 		var pins = group['pins'];
-		var currIndex = group['index'];
-		if (currIndex == undefined) {
-			currIndex = 0;
-		}
 		
 		for (var pinIndex in pins) {
 			var pin = pins[pinIndex];
 			pin['visible'] = (stringMatch(pin['title'], searchValue) || stringMatch(pin['description'], searchValue)) ? 'true' : 'false';
 		}
 		
-		if (pins[currIndex]['visible'] != 'true') {
+		var currIndex = 0;
+		if (pins[0]['visible'] != 'true') {
 			currIndex = getNextVisiblePin(groupId, currIndex);
 		}
 		updatePin(groupId, group, currIndex);
@@ -98,7 +114,7 @@ function getPrevVisiblePin(groupId, currIndex) {
 			return currIndex;
 		}
 	}
-	return 0;
+	return -1;
 }
 
 function getNextVisiblePin(groupId, currIndex) {
@@ -109,14 +125,20 @@ function getNextVisiblePin(groupId, currIndex) {
 			return currIndex;
 		}
 	}
-	return getPrevVisiblePin(groupId, currIndex);
+	return -1;
 }
 
 function updatePin(groupId, group, currIndex) {
-	group['index'] = currIndex;
+	if (currIndex >= 0) {
+		group['index'] = currIndex;
+	}
+	else {
+		currIndex = group['index']; 
+	}
+	
 	var pinCount = getGroupPinsCount(groupId);
-	document.getElementById(groupId + '-left').style.display = (currIndex > 0) ? 'block' : 'none';
-	document.getElementById(groupId + '-right').style.display = (currIndex < pinCount - 1) ? 'block' : 'none';
+	document.getElementById(groupId + '-left').style.display = (getPrevVisiblePin(groupId, currIndex) >= 0) ? 'block' : 'none';
+	document.getElementById(groupId + '-right').style.display = (getNextVisiblePin(groupId, currIndex) >= 0) ? 'block' : 'none';
 	
 	var pins = group['pins'];
 	var pin = pins[currIndex];
@@ -136,9 +158,24 @@ function updatePin(groupId, group, currIndex) {
 	worldMarker.style.left = pin['world_pos_x'] + 'px'; 
 	worldMarker.style.top = pin['world_pos_y'] + 'px';
 	
-	if (pins.length > 1) {
+	var numVisiblePins = 0;
+	for (var i = 0; i < pins.length; i++) {
+		var pinVisible = (pins[i]['visible'] == 'true');
+		var pagerImg = document.getElementById(groupId + '_pin' + i);
+		if (pagerImg != null) {
+			pagerImg.style.display = pinVisible ? 'inline-block' : 'none';
+			pagerImg.src = layoutDir + 'pager_' + ((i == currIndex) ? 'current' : 'other') + '.png'; 
+		}
+		if (pinVisible) {
+			numVisiblePins++;
+		}
+	}
+	if (numVisiblePins <= 1) {
 		for (var i = 0; i < pins.length; i++) {
-			document.getElementById(groupId + '_pin' + i).src = layoutDir + 'pager_' + ((i == currIndex) ? 'current' : 'other') + '.png'; 
+			var pagerImg = document.getElementById(groupId + '_pin' + i);
+			if (pagerImg != null) {
+				pagerImg.style.display = 'none';
+			}
 		}
 	}
 }

@@ -3,14 +3,18 @@ import sys
 import traceback
 import json
 import glob
+import re
 import base64
 import markdown
 from PIL import Image
 
 eob_base_url = 'https://apps.sentinel-hub.com/eo-browser/?'
+max_theme_image_width = 240
+max_theme_image_height = 200
 max_pin_image_width = 640
 max_pin_image_height = 480
 
+texts_per_theme = {}
         
 with open('_build/container.html', 'r', encoding='utf-8') as html_container_file, \
     open('_build/pin.html', 'r', encoding='utf-8') as html_pin_file:
@@ -125,9 +129,15 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
                     .replace('{download_display}', 'block' if pin['download_url'] else 'none') \
                     .replace('{description}', pin['description']) \
                     .replace('{arrow_right_display}', 'block' if len(pins_in_group) > 1 else 'none')
+                    
+                texts_in_theme = texts_per_theme.get(pins_dir)
+                if texts_in_theme == None:
+                    texts_in_theme = ""
+                
+                texts_in_theme += pin['title'] + " " + pin['description'] + " "
+                texts_per_theme[pins_dir] = texts_in_theme
                 
             html_content += '\t\t\t\t\t</div>\n'
-            
             
             html = html_container_template.replace('{content}', html_content)
             html = html.replace('{script}', javascript)
@@ -139,3 +149,58 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
             output_html_file.close() 
 
 print("Finished building HTML for pins")
+
+
+with open('themes.json', 'r', encoding='utf-8') as themes_json_file, \
+    open('_build/container.html', 'r', encoding='utf-8') as html_container_file, \
+    open('_build/theme.html', 'r', encoding='utf-8') as html_theme_file:
+    
+    html = html_container_file.read()
+    theme_html_template = html_theme_file.read()
+    
+    html_content = '\t\t\t\t\t<h2>Themes</h2>\n' + \
+                    '\t\t\t\t\t<div id="themes">\n'
+    
+    themes = json.load(themes_json_file)
+    for theme in themes:
+        theme_name = theme['name']
+        theme_path = re.sub('[^a-zA-Z0-9]', '_', theme_name)
+        
+        html_content += theme_html_template \
+            .replace('{theme_path}', theme_path) \
+            .replace('{theme_name}', theme_name)
+        
+        # resize and crop the images, that are too big 
+        theme_image = Image.open('_themeimgs/' + theme_path + '.jpg')
+        theme_image_width, theme_image_height = theme_image.size
+        
+        if (theme_image_width > max_theme_image_width) or (theme_image_height > max_theme_image_height):
+            is_wide = theme_image_width > theme_image_height * max_theme_image_width / max_theme_image_height
+            small_image_width = int(theme_image_width * max_theme_image_height / theme_image_height) if is_wide else max_theme_image_width
+            small_image_height = int(theme_image_height * max_theme_image_width / theme_image_width) if not is_wide else max_theme_image_height
+            small_image_horiz_border = (small_image_width - max_theme_image_width) / 2
+            small_image_vert_border = (small_image_height - max_theme_image_height) / 2
+            
+            theme_image.thumbnail((small_image_width, small_image_height), Image.ANTIALIAS)
+            small_image = theme_image.crop((small_image_horiz_border, small_image_vert_border, small_image_width - small_image_horiz_border, small_image_height - small_image_vert_border ))
+            small_image.save('_themeimgs/' + theme_path + '.jpg', 'jpeg', quality=95)
+            print('Resized theme image "' + theme_name + '" from ' + str(theme_image_width) + ' x ' + str(theme_image_height))
+        
+    
+    html_content += '\t\t\t\t\t</div>\n'
+    
+    javascript = '\t\t\tvar texts = {};\n'
+    for theme_name in texts_per_theme:
+        javascript += '\t\t\ttexts["' + theme_name + '"] = "' + texts_per_theme[theme_name].replace('"', '\\"').replace('\n', ' ').replace('\r', ' ') + '";\n'
+
+    html = html.replace('{content}', html_content)
+    html = html.replace('{script}', javascript)
+    html = html.replace('{layout_dir}', '_layout')
+    html = html.replace('{github_repo_url}', sys.argv[1] if len(sys.argv) > 1 else 'https://www.github.com')
+
+    output_html_file = open('index.html', 'w', encoding='utf-8')
+    output_html_file.write(html)
+    output_html_file.close()
+    
+print("Finished building HTML for themes")
+
