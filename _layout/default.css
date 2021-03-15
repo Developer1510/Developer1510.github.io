@@ -20,6 +20,18 @@ h3 {
 	font-size: 14px;
 }
 
+.button {
+	display: inline-block;
+	margin-right: 0px;
+	padding: 10px 10px;
+	margin-bottom: 15px;
+	color: white;
+	background-color: #01292f;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+}
+
 #container-vertical {
 	display: flex;
 	flex-direction: column;
