@@ -1,6 +1,6 @@
 # Building the pin library
 
-When the users commit their files into GitHub repository, a configured webhook executes an AWS CodeBuild script **buildspec.yml**, 
+When the users commits their files into GitHub repository, a configured webhook executes an AWS CodeBuild script **buildspec.yml**, 
 which executes a Python script **build.py**, and commits the changed files back into the GitHub.
 
 The Python script **build.py** parses and converts JSON files into the corresponding HTML files, by using several HTML template files.
@@ -23,7 +23,8 @@ enter any name, and check everything under "repo". You will get the new token. C
    - Check "Rebuild every time a code change is pushed to this repository"
    - Select "Single build"
    - In the "Event type" text box, add all the listed events
-   - Expand "Don't start a build under these conditions" and literally write **\\[CodeBuild\\]** (including the backslashes) under the "COMMIT_MESSAGE"
+   - Expand "Start a build under these conditions" and literally write ```.*\.json``` under the "FILE_PATH"
+   - Expand "Don't start a build under these conditions" and literally write ```\[CodeBuild\]``` (including the backslashes) under the "COMMIT_MESSAGE"
 - In the "Environment" section:
    - Select "Managed image"
    - Select "Ubuntu" under "Operating system"
@@ -40,7 +41,7 @@ enter any name, and check everything under "repo". You will get the new token. C
       - GIT_HUB_REPO = (GitHub repository, as "username/repository", like "aws/codebuild")
 - In the "Buildspec" section:
    - Select "Use a buildspec file"
-   - Write **_build/buildspec.yml** in "Buildspec name"
+   - Write ```_build/buildspec.yml``` in "Buildspec name"
 - Click "Create build project"
 - After the CodeBuild project is created, click it and then select "Build details" below.
 - In the "Primary source webhook events" section, there is a link for "Webhook". Click it, it will navigate you to GitHub, 
