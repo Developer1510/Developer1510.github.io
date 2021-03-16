@@ -13,10 +13,10 @@ phases:
       - git remote set-url origin https://$GIT_HUB_AUTH_USER:$GIT_HUB_AUTH_TOKEN@github.com/$GIT_HUB_REPO
       - git add index.html
       - git add */index.html
-      - git add */fig/*.jpeg
-      - git add */fig/*.jpg
-      - git add */fig/*.png
-      - git add _themeimgs/*.*
+      - git add --ignore-missing */fig/*.jpeg
+      - git add --ignore-missing */fig/*.jpg
+      - git add --ignore-missing */fig/*.png
+      - git add --ignore-missing _themeimgs/*.*
       - git add _build/build.log
       - git commit -m [CodeBuild]
       - git push origin HEAD:main
