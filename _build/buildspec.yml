@@ -11,7 +11,7 @@ phases:
       - git config user.email "codebuild@aws.amazon.com"
       - git config user.name "AWS CodeBuild"
       - git remote set-url origin https://$GIT_HUB_AUTH_USER:$GIT_HUB_AUTH_TOKEN@github.com/$GIT_HUB_REPO
-      - git add index.html */index.html */fig/*.jpeg */fig/*.jpg */fig/*.png _themeimgs/*.* _build/build.log
+      - git add .
       - git commit -m [CodeBuild]
       - git push origin HEAD:main
       - echo Build completed
