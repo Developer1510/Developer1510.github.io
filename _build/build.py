@@ -7,12 +7,50 @@ import re
 import base64
 import markdown
 from PIL import Image
+from _operator import is_
+
 
 eob_base_url = 'https://apps.sentinel-hub.com/eo-browser/?'
 max_theme_image_width = 240
 max_theme_image_height = 200
-max_pin_image_width = 640
-max_pin_image_height = 480
+max_pin_image_width = 800
+max_pin_image_height = 800
+
+
+def log(message, do_clear=False):
+    print(message)
+    file = open('_build/build.log', 'a')
+    if do_clear:
+        file.seek(0, 0)
+        file.truncate()
+    file.write(message + "\n")
+    file.close()
+
+def resize_image(src_image_path, dest_image_path, max_width, max_height, do_crop):
+    # resize and crop the images, that are too big 
+    log('Checking image "' + src_image_path + '"')
+    try:
+        image = Image.open(src_image_path)
+        width, height = image.size
+        
+        if (width > max_width) or (height > max_height):
+            log('Resizing image "' + src_image_path + '" from ' + str(width) + ' x ' + str(height))
+            is_wide = width * max_height > height * max_width
+            small_width = int(width * max_height / height) if not is_wide else max_width
+            small_height = int(height * max_width / width) if is_wide else max_height
+            small_horiz_border = (small_width - max_width) / 2
+            small_vert_border = (small_height - max_height) / 2
+            
+            image.thumbnail((small_width, small_height), Image.ANTIALIAS)
+            if do_crop:
+                image = image.crop((small_horiz_border, small_vert_border, small_width - small_horiz_border, small_height - small_vert_border))
+            image.save(dest_image_path, 'jpeg', quality=95)
+            log('Resized image "' + src_image_path + '" to ' + str(small_width) + ' x ' + str(small_height))
+    except Exception as e:
+        log('ERROR resizing image "' + src_image_path + '": ' + str(e))
+
+
+log("Started the build process", True)
 
 texts_per_theme = {}
         
@@ -38,22 +76,8 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
             .replace('{theme_path}', theme_path) \
             .replace('{theme_name}', theme_name)
         
-        # resize and crop the images, that are too big 
-        theme_image = Image.open('_themeimgs/' + theme_path + '.jpg')
-        theme_image_width, theme_image_height = theme_image.size
-        
-        if (theme_image_width > max_theme_image_width) or (theme_image_height > max_theme_image_height):
-            is_wide = theme_image_width > theme_image_height * max_theme_image_width / max_theme_image_height
-            small_image_width = int(theme_image_width * max_theme_image_height / theme_image_height) if is_wide else max_theme_image_width
-            small_image_height = int(theme_image_height * max_theme_image_width / theme_image_width) if not is_wide else max_theme_image_height
-            small_image_horiz_border = (small_image_width - max_theme_image_width) / 2
-            small_image_vert_border = (small_image_height - max_theme_image_height) / 2
-            
-            theme_image.thumbnail((small_image_width, small_image_height), Image.ANTIALIAS)
-            small_image = theme_image.crop((small_image_horiz_border, small_image_vert_border, small_image_width - small_image_horiz_border, small_image_height - small_image_vert_border ))
-            small_image.save('_themeimgs/' + theme_path + '.jpg', 'jpeg', quality=95)
-            print('Resized theme image "' + theme_name + '" from ' + str(theme_image_width) + ' x ' + str(theme_image_height))
-        
+        theme_img_path = '_themeimgs/' + theme_path + '.jpg';
+        resize_image(theme_img_path, theme_img_path, max_theme_image_width, max_theme_image_height, True)
     
         pin_auto_group_serial = 0
         pins_per_group = {}
@@ -61,7 +85,7 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
         for pins_json_file_name in glob.glob(os.path.join(theme_path, '*.json')):
             try:
                 with open(pins_json_file_name, 'r', encoding='utf-8') as pins_json_file:
-                    print('Processing JSON file "' + pins_json_file_name + '"')
+                    log('Processing JSON file "' + pins_json_file_name + '"')
                     pins = json.load(pins_json_file)
                     for pin in pins:
                         pin_id = pin.get('_id') or ''
@@ -74,11 +98,13 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
                         thumbnail_path = pin_lib_extra.get('thumbnailPath') if pin_lib_extra else None
                         if thumbnail_path is None and pin_id:
                             thumbnail_path = 'fig/' + pin_id + '.jpg'
+                            
+                        resize_image(theme_path + '/' + thumbnail_path, theme_path + '/' + thumbnail_path, max_pin_image_width, max_pin_image_height, False)
                         
                         # generate EOB URL
                         eob_url = eob_base_url
                         for pin_key in pin.keys():
-                            if pin_key not in ('title', 'description', 'pinLibrary'):
+                            if pin_key not in ('title', 'description', 'group', 'highResImageUrl', 'extra'):
                                 if pin_key == 'evalscript':
                                     eob_url += '&' + pin_key + '=' + base64.b64encode(bytes(str(pin.get(pin_key)), 'utf-8')).decode("utf-8")
                                 else:
@@ -195,5 +221,4 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
     output_html_file.write(html)
     output_html_file.close()
     
-print("Finished building HTML")
-
+log("Finished building HTML files")

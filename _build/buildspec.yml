@@ -13,6 +13,7 @@ phases:
       - git remote set-url origin https://$GIT_HUB_AUTH_USER:$GIT_HUB_AUTH_TOKEN@github.com/$GIT_HUB_REPO
       - git add */index.html
       - git add index.html
+      - git add _build/build.log
       - git commit -m [CodeBuild]
       - git push origin HEAD:main
       - echo Build completed

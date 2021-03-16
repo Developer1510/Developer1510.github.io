@@ -23,7 +23,7 @@ enter any name, and check everything under "repo". You will get the new token. C
    - Check "Rebuild every time a code change is pushed to this repository"
    - Select "Single build"
    - In the "Event type" text box, add all the listed events
-   - Expand "Start a build under these conditions" and literally write ```.*\.json``` under the "FILE_PATH"
+   - Expand "Start a build under these conditions" and literally write ```.*\.(json|jpg|jpeg|png)``` under the "FILE_PATH"
    - Expand "Don't start a build under these conditions" and literally write ```\[CodeBuild\]``` (including the backslashes) under the "COMMIT_MESSAGE"
 - In the "Environment" section:
    - Select "Managed image"
