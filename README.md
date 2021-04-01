@@ -33,7 +33,7 @@ The black rectangle shows the structure of a single pin; each pin is included in
 
 ![json](/_imgs/Readme/json.png)
 
-**Note that the only parameters you can edit are pinTitle, description, group and highResUrl. Changing any other existing parameter could cause your pin to not work!**
+**Note that the only parameters you can edit are `title`, `description`, `group` and `highResImageUrl`. Changing any other existing parameter could cause your pin to not work!**
 
 ### 1.2 Set up folders 
 
