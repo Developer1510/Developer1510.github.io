@@ -18,7 +18,18 @@ To contribute content to pin library, you need the following:
 - Installed git and the Pin Library repository cloned (see [this guide](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners) to learn how to use git)
 - Images for each pin downloaded (you can use the EO Browser download feature, or create a screenshot using Greenshot or a similar application). 
 
+All you need to do to add a new theme is to complete the following steps, which are explained in detail below: 
+
+1. Export the pin JSON from EO Browser
+2. Clone the repository
+3. Create a new folder for your theme, add a subfolder called `fig` for images and copy in the JSON file with the same name as the theme folder
+4. Replace the names of your images with the unique pin IDs
+5. Add a theme thumbnail image
+6. Create a pull request
+
 When you complete all the steps below, the INDEX file, which will hold the actual content of the Pin Library theme website, will be generated automatically. It will be parsed based on your JSON file, so you won't need to add any additional files, save from the ones listed above. 
+
+Additionally, you can optionally group your pins and add high resolution URLs. 
 
 When you commit your changes, our team will check your contribution in the shortest possible time. 
 
@@ -100,12 +111,10 @@ Note that you can also add a non-image element to the group, such as a photograp
 
 ### 1.6 High resolution links (OPTIONAL)
 
-You can add a URL link to a high resolution image of the pin, if available, to the `"highResImageUrl"` parameter. In the Pin Library, you can see that some pins have the button High Resolution available under the Open in EO Browser button. These are the pins, which have this optional parameter set. 
+You can add a URL link to a high resolution image of the pin, if available, to the `"highResImageUrl"` parameter. In the Pin Library, you can see that some pins have the button "High-res download" available under the "Open in EO Browser" button. These are the pins, which have this optional parameter set. 
 By default, this value is set to `null`. You will have to replace `null` with `"URL"`, where URL is the link to your high resolution image of the pin. Don't forget to add the quotation marks around it as well, and be careful not to accidentally delete the comma after the parameter. The JSON structure must stay like this: 
 
 `"highResImageUrl":"www.link.com",`
-
-When you're done, commit your changes and push to the repository. Create a merge request. You're done!
 
 ## 2. Export pins from EO Browser
 
