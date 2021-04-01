@@ -52,10 +52,14 @@ To demonstrate, we have added a folder called "Clouds_and_Hurricanes".
 
 ### 1.3 Images
 
+**Pin images**
+
 - Paste all your pin images corresponding to the same theme, into your newly created `fig` folder. 
-- Next, replace the name of each image with the unique ID from the JSON file for the corresponding pin, like in the image below. From each pin, grab the value of the `_id` parameter. Foe example: from the line `"_id": "119aea85-e6a8-4a75-a3f6-9bfab4519ea2-pin"`, grab only the value - in this case `119aea85-e6a8-4a75-a3f6-9bfab4519ea2-pin` and paste it into the image name like so: `119aea85-e6a8-4a75-a3f6-9bfab4519ea2-pin.png`.
+- Next, replace the name of each image with the unique ID from the JSON file for the corresponding pin, like in the image below. From each pin, grab the value of the `_id` parameter. For example, from the line `"_id": "119aea85-e6a8-4a75-a3f6-9bfab4519ea2-pin"`, grab only the value, which in this case equals to `119aea85-e6a8-4a75-a3f6-9bfab4519ea2-pin` and paste it into the image name like so: `119aea85-e6a8-4a75-a3f6-9bfab4519ea2-pin.png`.
 
 ![arrow](/_imgs/Readme/image_rename.png)
+
+**Theme thumbnail image**
 
 - Next, you will need to add an image to represent your theme. As you can see on the image below, each theme has its own thumbnail, which is usually one of the pins, that best represents it. 
 
@@ -70,7 +74,7 @@ To demonstrate, we have added a folder called "Clouds_and_Hurricanes".
 - To add a new pin to the existing theme, export the particular pin from EO Browser and copy it from the exported JSON file (only the pin content, which is between the `{}` symbols) to the JSON file of the theme (located in the theme folder). Make sure that all the pins have a comma at the end, except the last one, and that they are all included in a larger array. Don't forget to add an image for the pin.  Refer to chapter 1.1 for the JSON structure, chapter 1.2 for folder setup, chapter 1.3 for images and chapter 2 for exporting pins from EO Browser. 
 - Don't forget to add an image to the pin, if you're adding a new one. Refer to the chapter 1.2. 
 - To update an image, replace the image with another one, and make sure the name of the image stays the same, to keep the connection to the pin. The images are located in the theme folders -> subfolder `fig`. Refer to the chapter 1.2 for folder structure and 1.3 for images. 
-- To change a theme thumbnail, replace an image and leave the name as it was, in the `\_themeimgs` folder. Refer to the chapter 1.3. 
+- To change a theme thumbnail, replace an image and leave the name as it was, in the `\_themeimgs` folder. Refer to the chapter 1.3, Theme thumbnail image. 
 - To edit a description or title, you need to edit it directly in the JSON file. Refer to chapter 1.1 for the JSON structure and 2.2 for the Markdown guide. 
 - To connect several pins into a group, match the `group` parameter for each pin in the same group. Refer to chapter 1.1 for the JSON structure and 1.5 for the grouping guide. 
 - To add a high resolution link, add an URL to the `highResImageUrl` parameter. Refer to chapter 1.1 for the JSON structure and 1.6 for the high resolution URL. 
