@@ -50,7 +50,7 @@ Export pins from EO Browser by clicking the Export button. Note that all the pin
 ## 2. Contribute the Whole Theme
 
 To contribute content to pin library, you need the following: 
-- A JSON file with EO Browser pins (check section 2)
+- A JSON file with EO Browser pins (check section 1)
 - Installed git and the Pin Library repository cloned (see [this guide](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners) to learn how to use git)
 - Images for each pin downloaded
 
