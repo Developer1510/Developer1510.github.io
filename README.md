@@ -9,6 +9,8 @@ So you want to contribute to the wonderful world of satellite imagery? Just foll
 The pins are exported from [EO Browser](https://apps.sentinel-hub.com/eo-browser/), where the satellite, date, location, visualization and description are all set, and finally uploaded to the Pin Library using git. 
 If you're not familiar with how to configure and export the pins from EO Browser, start with chapter 2, and return to chapter 1 when you have your pins exported. 
 
+The guide below will explain how to contribute the whole new theme of pins, explaining how Pin Library is structured. If you would like to contribute to existing theme, read the chapters 1.4 and refer to the reffered chapters as needed. 
+
 **Basic information**
 
 To contribute content to pin library, you need the following: 
@@ -27,8 +29,8 @@ The black rectangle shows the structure of a single pin; each pin is included in
 
 - `_id:` - underlined with green: A unique pin ID, given to each pin on export. You will copy the value of this field to replace your image names. See chapter 1.3 for more information. SHOULD NOT BE CHANGED.
 - `title` - underlined with orange: Pin title, as displayed in EO Browser and Pin Library. Should already be set in EO Browser, but can be changed later. Check chapter 1.2 for more information
-- `group` - underlined with blue: Optional parameter. You can use it to group pins together to be displayed as one group on the pin library. By default set to `null` - if desired, the user needs to update it after export. See chapter 1.4 for more information.
-- `highResImageUrl` - underlined with purple: Optional parameter. If you have a high resolution image uploaded on Flickr or other similar website, you can add the link here. By default set to `null` - if desired, the user needs to update it after export. See chapter 1.5 for more information.
+- `group` - underlined with blue: Optional parameter. You can use it to group pins together to be displayed as one group on the pin library. By default set to `null` - if desired, the user needs to update it after export. See chapter 1.5 for more information.
+- `highResImageUrl` - underlined with purple: Optional parameter. If you have a high resolution image uploaded on Flickr or other similar website, you can add the link here. By default set to `null` - if desired, the user needs to update it after export. See chapter 1.6 for more information.
 - `description` - underlined with red: The description you added in EO Browser. Should already be set in EO Browser, but can be changed later. Check chapter 2.2 for more information.
 
 ![json](/_imgs/Readme/json.png)
@@ -63,7 +65,18 @@ To demonstrate, we have added a folder called "Clouds_and_Hurricanes".
 
 ![thumbnail](/_imgs/Readme/theme_imgs.png)
 
-### 1.4 Groups (OPTIONAL)
+### 1.6 Contribute to existing themes
+
+- To add a new pin to the existing theme, export the particular pin from EO Browser and copy it from the exported JSON file (only the pin content, which is between the `{}` symbols) to the JSON file of the theme (located in the theme folder). Make sure that all the pins have a comma at the end, except the last one, and that they are all included in a larger array. Don't forget to add an image for the pin.  Refer to chapter 1.1 for the JSON structure, chapter 1.2 for folder setup, chapter 1.3 for images and chapter 2 for exporting pins from EO Browser. 
+- Don't forget to add an image to the pin, if you're adding a new one. Refer to the chapter 1.2. 
+- To update an image, replace the image with another one, and make sure the name of the image stays the same, to keep the connection to the pin. The images are located in the theme folders -> subfolder `fig`. Refer to the chapter 1.2 for folder structure and 1.3 for images. 
+- To change a theme thumbnail, replace an image and leave the name as it was, in the `\_themeimgs` folder. Refer to the chapter 1.3. 
+- To edit a description or title, you need to edit it directly in the JSON file. Refer to chapter 1.1 for the JSON structure and 2.2 for the Markdown guide. 
+- To connect several pins into a group, match the `group` parameter for each pin in the same group. Refer to chapter 1.1 for the JSON structure and 1.5 for the grouping guide. 
+- To add a high resolution link, add an URL to the `highResImageUrl` parameter. Refer to chapter 1.1 for the JSON structure and 1.6 for the high resolution URL. 
+- Check the previous chapters for more information.
+
+### 1.5 Groups (OPTIONAL)
 
 If you leave your setup as it is, each pin will be a separate entity in your theme, such as with the Agriculture theme. 
 
@@ -81,7 +94,7 @@ By default, group value is set to `null`. You will have to replace `null` with `
 
 Note that you can also add a non-image element to the group, such as a photograph, a timelapse or a legend, by adding JSON content outside of the pin and adding the group parameter with the same value. (recommended only for experienced users). 
 
-### 1.5 High resolution links (OPTIONAL)
+### 1.6 High resolution links (OPTIONAL)
 
 You can add a URL link to a high resolution image of the pin, if available, to the `"highResImageUrl"` parameter. In the Pin Library, you can see that some pins have the button High Resolution available under the Open in EO Browser button. These are the pins, which have this optional parameter set. 
 By default, this value is set to `null`. You will have to replace `null` with `"URL"`, where URL is the link to your high resolution image of the pin. Don't forget to add the quotation marks around it as well, and be careful not to accidentally delete the comma after the parameter. The JSON structure must stay like this: 
@@ -89,14 +102,6 @@ By default, this value is set to `null`. You will have to replace `null` with `"
 `"highResImageUrl":"www.link.com",`
 
 When you're done, commit your changes and push to the repository. Create a merge request. You're done!
-
-### 1.6 Contribute to existing themes
-
-- To add a new pin to the existing theme, export the particular pin from EO Browser and copy it from the JSON file (only the pin content, which is between the `{}` symbols) to the JSON file of the theme. Make sure that all pins have a comma at the end, except the last one. 
-- Don't forget to add an image to the pin, if you're adding a new one. 
-- To update an image, replace the image with another one, and make sure the name of the image stays the same, to keep the connection to the pin. 
-- To edit a description, title or group, you need to edit it directly in the JSON file. 
-- Check the previous chapters for more information.
 
 ## 2. Export pins from EO Browser
 
