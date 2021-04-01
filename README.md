@@ -1,8 +1,8 @@
-**Welcome!**
+## Welcome!
 
 Welcome to the pin library, where anyone can browse and share satellite imagery of interesting locations and events of the Earth! There are several themes available, each holding many pins with images, descriptions and locations. We're hoping it can become a repository of remote sensing imagery, useful to any enthusiast, teacher, student or researcher. Don't forget to click on the EO Browser link for the pin that picks your interest, to explore it yourself! 
 
-# 1 Contribute to Pin Library
+## 1 Contribute to Pin Library
 
 So you want to contribute to the wonderful world of satellite imagery? Just follow these instructions and you'll be started in no time!
 
@@ -20,7 +20,7 @@ When you complete all the steps below, the INDEX file, which will hold the actua
 
 When you commit your changes, our team will check your contribution in the shortest possible time. 
 
-## 1.1 Examine the JSON file
+### 1.1 Examine the JSON file
 
 The image below displays the structure of the JSON file exported from EO Browser. 
 The red rectangle shows the structure of a single pin; each pin is included in curly brackets {}, which are all a part of a large array ([]) and separated by commas. 
@@ -34,7 +34,7 @@ The red rectangle shows the structure of a single pin; each pin is included in c
 
 **Note that the only parameters you can edit are pinTitle, description, group and highResUrl. Changing any other existing parameter could cause your pin to not work!**
 
-## 1.2 Set up folders 
+### 1.2 Set up folders 
 
 1. In your local pin library repository, create a new folder with the name of your theme. Separate the words in the name using the `_` sign.
 To demonstrate, we have added a folder called "Clouds_and_Hurricanes". 
@@ -47,7 +47,7 @@ To demonstrate, we have added a folder called "Clouds_and_Hurricanes".
 
 ![folder2](/_imgs/Readme/folder2.png)
 
-## 1.3 Images
+### 1.3 Images
 
 - Paste all your pin images corresponding to the same theme, into your newly created `fig` folder. 
 - Next, replace the name of each image with the unique ID from the JSON file for the corresponding pin, like in the image below.
@@ -62,7 +62,7 @@ To demonstrate, we have added a folder called "Clouds_and_Hurricanes".
 
 ![thumbnail](/_imgs/Readme/theme_imgs.png)
 
-## 1.4 Groups (OPTIONAL)
+### 1.4 Groups (OPTIONAL)
 
 If you leave your setup as it is, each pin will be a separate entity in your theme, such as with the Agriculture theme. 
 
@@ -80,7 +80,7 @@ By default, group value is set to `null`. You will have to replace `null` with `
 
 Note that you can also add a non-image element to the group, such as a photograph, a timelapse or a legend, by adding JSON content outside of the pin and adding the group parameter with the same value. (recommended only for experienced users). 
 
-## 1.5 High resolution links (OPTIONAL)
+### 1.5 High resolution links (OPTIONAL)
 
 You can add a URL link to a high resolution image of the pin, if available, to the `"highResImageUrl"` parameter. In the Pin Library, you can see that some pins have the button High Resolution available under the Open in EO Browser button. These are the pins, which have this optional parameter set. 
 By default, this value is set to `null`. You will have to replace `null` with `"URL"`, where URL is the link to your high resolution image of the pin. Don't forget to add the quotation marks around it as well, and be careful not to accidentally delete the comma after the parameter. The JSON structure must stay like this: 
@@ -89,7 +89,7 @@ By default, this value is set to `null`. You will have to replace `null` with `"
 
 When you're done, commit your changes and push to the repository. Create a merge request. You're done!
 
-## 1.6 Contribute to Existing Themes
+### 1.6 Contribute to Existing Themes
 
 - To add a new pin to the existing theme, export the particular pin from EO Browser and copy it from the JSON file (only the pin content, which is between the `{}` symbols) to the JSON file of the theme. Make sure that all pins have a comma at the end, except the last one. 
 - Don't forget to add an image to the pin, if you're adding a new one. 
@@ -97,17 +97,17 @@ When you're done, commit your changes and push to the repository. Create a merge
 - To edit a description, title or group, you need to edit it directly in the JSON file. 
 - Check the previous chapters for more information.
 
-# 2 Export pins from EO Browser
+## 2 Export pins from EO Browser
 
 The pins you will upload to Pin Library need to be configured in [EO Browser](https://apps.sentinel-hub.com/eo-browser/). If you don't know how to use EO Browser, check out [this tutorial](https://www.sentinel-hub.com/explore/eobrowser/).
  
-## 2.1 Save your pins
+### 2.1 Save your pins
 
 Save your chosen location as pin, by clicking on the pin icon in the top menu on the left (as highlighted with a red rectancle). 
 
 ![save_pin](/_imgs/Readme/location.png =40px))
 
-## 2.2. Edit your pins
+### 2.2. Edit your pins
 
 Open the Pin tab on top (blue rectangle on the image above), to display all your pins. 
 
@@ -127,7 +127,7 @@ You can delete the pins by clicking the trash can icon on the left, and you can 
 
 ![delete_rearrange_pins](/_imgs/Readme/delete.png)
 
-## 2.3. Export pins
+### 2.3. Export pins
 
 Export pins from EO Browser by clicking the Export button. Note that all the pins in your list will be added - make sure to remove those you don't want included before hand (or remove them manually from the JSON file later).
 
