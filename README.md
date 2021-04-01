@@ -42,7 +42,7 @@ Copy your JSON file into this folder. Rename the JSON file so that it matches th
 
 In the same folder, create another folder called `fig` (lowercase). 
 
-![folder2](/fig/folder2.png)
+![folder2](/_imgs/Readme/folder2.png)
 
 ### 1.3. Images
 
