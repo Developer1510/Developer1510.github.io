@@ -2,7 +2,7 @@
 
 Welcome to the pin library, where anyone can browse and share satellite imagery of interesting locations and events of the Earth! There are several themes available, each holding many pins with images, descriptions and locations. We're hoping it can become a repository of remote sensing imagery, useful to any enthusiast, teacher, student or researcher. Don't forget to click on the EO Browser link for the pin that picks your interest, to explore it yourself! 
 
-## 1 Contribute to Pin Library
+## 1. Contribute to Pin Library
 
 So you want to contribute to the wonderful world of satellite imagery? Just follow these instructions and you'll be started in no time!
 
@@ -89,7 +89,7 @@ By default, this value is set to `null`. You will have to replace `null` with `"
 
 When you're done, commit your changes and push to the repository. Create a merge request. You're done!
 
-### 1.6 Contribute to Existing Themes
+### 1.6 Contribute to existing themes
 
 - To add a new pin to the existing theme, export the particular pin from EO Browser and copy it from the JSON file (only the pin content, which is between the `{}` symbols) to the JSON file of the theme. Make sure that all pins have a comma at the end, except the last one. 
 - Don't forget to add an image to the pin, if you're adding a new one. 
@@ -97,7 +97,7 @@ When you're done, commit your changes and push to the repository. Create a merge
 - To edit a description, title or group, you need to edit it directly in the JSON file. 
 - Check the previous chapters for more information.
 
-## 2 Export pins from EO Browser
+## 2. Export pins from EO Browser
 
 The pins you will upload to Pin Library need to be configured in [EO Browser](https://apps.sentinel-hub.com/eo-browser/). If you don't know how to use EO Browser, check out [this tutorial](https://www.sentinel-hub.com/explore/eobrowser/).
  
