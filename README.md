@@ -21,7 +21,7 @@ Save your chosen location as pin, by clicking on the pin icon in the top menu on
 
 ![save_pin](/_imgs/Readme/location.png)
 
-### 1.2. Edit your pins**
+### 1.2. Edit your pins
 
 Open the Pin tab on top (blue rectangle on the image above), to display all your pins. 
 
