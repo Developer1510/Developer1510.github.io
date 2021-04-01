@@ -6,7 +6,8 @@ Welcome to the pin library, where anyone can browse and share satellite imagery 
 
 So you want to contribute to the wonderful world of satellite imagery? Just follow these instructions and you'll be started in no time!
 
-The pins are exported from EO Browser, where the satellite, date, location, visualization and description are all set. The pins are exported from EO Browser, and uploaded to the Pin Library using git. 
+The pins are exported from EO Browser, where the satellite, date, location, visualization and description are all set, and finally uploaded to the Pin Library using git. 
+If you're not familiar with how to configure and export the pins from EO Browser, take a look at the chapter 2, and return to the chapter 1 when you'r pins are exported. 
 
 When you commit your changes, our team will check your contribution in the shortest possible time. 
 
