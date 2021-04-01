@@ -27,13 +27,14 @@ All you need to do to add a new theme is to complete the following steps, which 
 5. Add a theme thumbnail image
 6. Create a pull request
 
-Please read the chapters below carefully. 
+Additionally, you can optionally group your pins and add high resolution URLs. 
 
 When you complete all the required steps and create a pull request, the INDEX file, which will hold the actual content of the Pin Library theme website, will be generated automatically. It will be parsed based on your JSON file, so you won't need to add any additional files, save from the ones listed above. 
 
-Additionally, you can optionally group your pins and add high resolution URLs. 
-
 When you commit your changes, our team will check your contribution in the shortest possible time. 
+
+**Please read the chapters below carefully.** 
+
 
 ### 1.1 Examine the JSON file
 
