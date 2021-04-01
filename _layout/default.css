@@ -136,6 +136,10 @@ h3 {
 	text-align: right;
 }
 
+.right {
+	float: right;
+}
+
 .theme-img {
 	display: inline-block;
 	position: relative;

@@ -146,7 +146,14 @@ with open('_build/container.html', 'r', encoding='utf-8') as html_container_file
             except Exception as e:
                 traceback.print_exception(type(e), e, e.__traceback__)               
         
-        pin_html_content = '\t\t\t\t\t<h2>Pins: ' + theme_name + '</h2>\n'
+        pin_html_content = \
+            '\t\t\t\t\t<div>\n' + \
+            '\t\t\t\t\t\t<a href="' + os.path.basename(pins_json_file_name) + '" class="right" target="_blank" download="' + os.path.basename(pins_json_file_name) + '">\n' + \
+            '\t\t\t\t\t\t\t<img src="{layout_dir}/export.svg" title="Export pins to JSON file" />\n' + \
+            '\t\t\t\t\t\t</a>\n' + \
+            '\t\t\t\t\t\t<h2>Pins: ' + theme_name + '</h2>\n' + \
+            '\t\t\t\t\t</div>\n'
+        
         pin_javascript = '\t\t\tvar groups = [];\n'
 
         # put the first pin of each group into the HTML and append all pins to pin_javascript
