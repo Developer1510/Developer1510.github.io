@@ -12,7 +12,7 @@ If you're not familiar with how to configure and export the pins from EO Browser
 ** Basic information **
 
 To contribute content to pin library, you need the following: 
-- A JSON file with EO Browser pins (check section 1)
+- A JSON file with EO Browser pins (check section 2)
 - Installed git and the Pin Library repository cloned (see [this guide](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners) to learn how to use git)
 - Images for each pin downloaded
 
