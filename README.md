@@ -23,13 +23,13 @@ When you commit your changes, our team will check your contribution in the short
 ### 1.1 Examine the JSON file
 
 The image below displays the structure of the JSON file exported from EO Browser. 
-The black rectangle shows the structure of a single pin; each pin is included in curly brackets `{}`, and all pins are listed inside a large array `[]` and separated by commas. 
+The black rectangle shows the structure of a single pin; each pin is included in curly brackets `{}`, and all pins are listed inside a large array `[]` and separated by commas.
 
-- `_id:` - underlined with green: A unique pin ID. You will copy the value of this field to replace your image names. See chapter 1.3 for more information. SHOULD NOT BE CHANGED.
-- `title` - underlined with orange: Pin title, as displayed in EO Browser and Pin Library. Check chapter 1.2 for more information
-- `group` - underlined with blue: Optional parameter. You can use it to group pins together to be displayed as one group on the pin library. See chapter 1.4 for more information.
-- `highResImageUrl` - underlined with purple: Optional parameter. If you have a high resolution image uploaded on Flickr or other similar website, you can add the link here. See chapter 1.5 for more information.
-- `description` - underlined with red: The description you added in EO Browser. You can edit this description anytime. Check chapter 2.2 for more information.
+- `_id:` - underlined with green: A unique pin ID, given to each pin on export. You will copy the value of this field to replace your image names. See chapter 1.3 for more information. SHOULD NOT BE CHANGED.
+- `title` - underlined with orange: Pin title, as displayed in EO Browser and Pin Library. Should already be set in EO Browser, but can be changed later. Check chapter 1.2 for more information
+- `group` - underlined with blue: Optional parameter. You can use it to group pins together to be displayed as one group on the pin library. By default set to `null` - if desired, the user needs to update it after export. See chapter 1.4 for more information.
+- `highResImageUrl` - underlined with purple: Optional parameter. If you have a high resolution image uploaded on Flickr or other similar website, you can add the link here. By default set to `null` - if desired, the user needs to update it after export. See chapter 1.5 for more information.
+- `description` - underlined with red: The description you added in EO Browser. Should already be set in EO Browser, but can be changed later. Check chapter 2.2 for more information.
 
 ![json](/_imgs/Readme/json.png)
 
