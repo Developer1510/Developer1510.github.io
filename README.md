@@ -37,14 +37,14 @@ The black rectangle shows the structure of a single pin; each pin is included in
 
 ### 1.2 Set up folders 
 
-1. In your local pin library repository, create a new folder with the name of your theme. Separate the words in the name using the `_` sign.
+- In your local pin library repository, create a new folder with the name of your theme. Separate the words in the name using the `_` sign.
 To demonstrate, we have added a folder called "Clouds_and_Hurricanes". 
 
 ![folder1](/_imgs/Readme/theme.png)
 
-2. Copy your JSON file into this folder. Rename the JSON file so that it matches the name of your theme folder. For example, if the theme folder is named "Clouds_and_Hurricanes", the JSON file should also be named "Clouds_and_Hurricanes". Note that this is the name that will be displayed on the top of your theme in the Pin Library. If you would like to note your name, you simply add your name to the theme name like so: "themeName_by_yourName" (e.g. "Clouds_and_Hurricanes_by_Monja").
+- Copy your JSON file into this folder. Rename the JSON file so that it matches the name of your theme folder. For example, if the theme folder is named "Clouds_and_Hurricanes", the JSON file should also be named "Clouds_and_Hurricanes". Note that this is the name that will be displayed on the top of your theme in the Pin Library. If you would like to note your name, you simply add your name to the theme name like so: "themeName_by_yourName" (e.g. "Clouds_and_Hurricanes_by_Monja").
 
-3. In the same folder, create another folder called `fig` (should be lowercase). 
+- In the same folder, create another folder called `fig` (should be lowercase). 
 
 ![folder2](/_imgs/Readme/folder2.png)
 
