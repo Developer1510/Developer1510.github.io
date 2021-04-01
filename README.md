@@ -16,7 +16,7 @@ The guide below will explain how to contribute the whole new theme of pins, expl
 To contribute content to pin library, you need the following: 
 - A JSON file with EO Browser pins (check section 2)
 - Installed git and the Pin Library repository cloned (see [this guide](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners) to learn how to use git)
-- Images for each pin downloaded
+- Images for each pin downloaded (you can use the EO Browser download feature, or create a screenshot using Greenshot or a similar application). 
 
 When you complete all the steps below, the INDEX file, which will hold the actual content of the Pin Library theme website, will be generated automatically. It will be parsed based on your JSON file, so you won't need to add any additional files, save from the ones listed above. 
 
