@@ -9,7 +9,7 @@ So you want to contribute to the wonderful world of satellite imagery? Just foll
 The pins are exported from [EO Browser](https://apps.sentinel-hub.com/eo-browser/), where the satellite, date, location, visualization and description are all set, and finally uploaded to the Pin Library using git. 
 If you're not familiar with how to configure and export the pins from EO Browser, start with chapter 2, and return to chapter 1 when you have your pins exported. 
 
-** Basic information **
+**Basic information**
 
 To contribute content to pin library, you need the following: 
 - A JSON file with EO Browser pins (check section 2)
