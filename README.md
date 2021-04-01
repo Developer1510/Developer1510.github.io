@@ -53,7 +53,7 @@ To demonstrate, we have added a folder called "Clouds_and_Hurricanes".
 ### 1.3 Images
 
 - Paste all your pin images corresponding to the same theme, into your newly created `fig` folder. 
-- Next, replace the name of each image with the unique ID from the JSON file for the corresponding pin, like in the image below.
+- Next, replace the name of each image with the unique ID from the JSON file for the corresponding pin, like in the image below. From each pin, grab the value of the `_id` parameter. Foe example: from the line `"_id": "119aea85-e6a8-4a75-a3f6-9bfab4519ea2-pin"`, grab only the value - in this case `119aea85-e6a8-4a75-a3f6-9bfab4519ea2-pin` and paste it into the image name like so: `119aea85-e6a8-4a75-a3f6-9bfab4519ea2-pin.png`.
 
 ![arrow](/_imgs/Readme/image_rename.png)
 
